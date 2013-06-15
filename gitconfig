@@ -1,0 +1,32 @@
+[user]
+  name = Grayson Wright
+  email = wright.grayson@gmail.com
+[color]
+  ui = true
+[alias]
+  s = 'status'
+  d = 'diff'
+  b = 'branch'
+  a = 'add'
+  m = 'merge'
+  c = 'commit'
+  co = 'checkout'
+  j = 'pull'
+  k = 'push'
+  h = 'help'
+  lg1 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(cyan)(%ar)%C(reset) %C(white)%s%C(reset) %C(yellow)— %aN%C(reset)%C(blue)%d%C(reset)' --abbrev-commit --date=relative
+  lg2 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(green)%aD%C(reset) %C(cyan)(%ar)%C(reset)%C(blue)%d%C(reset)%n''          %C(white)%s%C(reset) %C(yellow)— %an%C(reset)' --abbrev-commit
+  lg = !"git lg1"
+
+  an = 'annex'
+[core]
+  editor = /usr/bin/vim
+  excludesfile = /opt/boxen/config/git/gitignore
+
+[credential]
+  helper = /opt/boxen/bin/boxen-git-credential
+
+[hub]
+#protocol = https
+[push]
+  default = current
