@@ -20,6 +20,17 @@ alias git='hub'
 alias glg='g lg | h; echo'
 alias gls='clear; pwd; echo; ls; echo; git s'
 alias h='head'
+alias retag='ctags -R --exclude=.svnignore --exclude=.git --exclude=log --exclude=tmp *'
+alias ag='ag -i'
+alias flogit='find . -name \*.rb | xargs flog'
+alias flayit='find . -name \*.rb | xargs flay'
+
+# Notifications for after long-running jobs
+alias notify='terminal-notifier -message "Task done!"; bell'
+alias push='httparty -a post -r -d "token=AgWcEK3mj1BdXnhapJjz9mJDH18X1M&user=xn6H7TxUCGKTkJOviZxNFy4yMGv27b&title=Process+Finished&message=Put+down+that+beer" https://api.pushover.net/1/messages.json'
+
+# Sleep the computer (OS X only)
+alias sleep!='pmset sleepnow'
 
 # Reloading config files
 alias .a='. ~/.bash_aliases'
