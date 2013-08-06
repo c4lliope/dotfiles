@@ -7,6 +7,7 @@ alias sshta='ssh ta231010@cse.msu.edu'
 alias sshcruise='ssh 435cruise3@cse.msu.edu'
 alias sshacm='ssh acm@acm.cse.msu.edu'
 alias sshorithena='ssh grayson@orithena.cas.msu.edu'
+alias sshimac='ssh grayson@imac.devices.graysonwright.com'
 
 # shortcuts -- every keystroke counts!
 alias l='ls'
@@ -45,7 +46,11 @@ alias ra='rake'
 alias r='rails'
 #alias rake='bundle exec rake'
 
+# Keep track of device locations
+alias devices='dnsimple record:list graysonwright.com'
+
 # Helpful aliases
+alias ip="curl --connect-timeout 5 icanhazip.com"
 alias bell="echo -n $'\a'"
 alias remake="make clean; cls; make"
 alias mvi="mvim"
