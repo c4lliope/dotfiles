@@ -22,7 +22,7 @@
   an = 'annex'
 [core]
   editor = /usr/bin/vim
-  excludesfile = /opt/boxen/config/git/gitignore
+  excludesfile = /Users/graysonwright/.gitignore
 
 [credential]
   helper = /opt/boxen/bin/boxen-git-credential
