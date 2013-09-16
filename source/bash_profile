@@ -22,18 +22,24 @@ export PS1='\[\e[0;22m\]\h\[\e[m\] \[\e[0;33m\]\W\[\e[m\] \[\e[0;34m\]$(git_prom
 
 # PATH Modifications
 
+## For curl bundle
+export SSL_CERT_FILE='/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt'
+
 ## For Homebrew
 PATH="/usr/local/sbin:$PATH"
 PATH="/usr/local/bin:$PATH"
 
-## For Rbenv
-PATH="/Users/graysonwright/.rbenv/shims:$PATH"
+## For chruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+chruby 2.0
+source /usr/local/opt/chruby/share/chruby/auto.sh
 
 ## For git-annex
 PATH="$PATH:/Applications/git-annex.app/Contents/MacOS"
 
 ## For user-defined functions
 PATH="$HOME/bin:$PATH"
+PATH="./bin:$PATH"
 export PATH
 
 # Boxen
