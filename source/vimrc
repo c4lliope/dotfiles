@@ -1,0 +1,44 @@
+let mapleader=" "
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+colorscheme solarized
+set background=light
+
+" Fast editing of .vimrc file
+map <Leader>v :e ~/.vimrc<CR>
+autocmd! bufwritepost .vimrc source %
+
+" Fast movement within a file
+set relativenumber
+
+" Use 2 spaces as a tab
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+" Quickly open/close buffers
+map <Leader>w :w<CR>
+map <Leader>q :q<CR>
+map <Leader>d :bd<CR>
+map <Leader>j :bn<CR>
+map <Leader>k :bp<CR>
+
+set hlsearch
+
+" Open split windows properly
+set splitbelow
+set splitright
+
+
+" For navigating split windows
+noremap <C-J> <C-W><C-j>
+noremap <C-K> <C-W><C-k>
+noremap <C-L> <C-W><C-l>
+noremap <C-H> <C-W><C-h>
+
+" Allow buffers to be backgrounded
+" even if they have unsaved changes
+set hidden
