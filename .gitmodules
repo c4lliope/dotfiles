@@ -1,3 +1,9 @@
 [submodule "source/vim/bundle/solarized"]
 	path = source/vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "source/vim/bundle/sensible"]
+	path = source/vim/bundle/sensible
+	url = git://github.com/tpope/vim-sensible.git
+[submodule "source/vim/bundle/rspec"]
+	path = source/vim/bundle/rspec
+	url = git@github.com:thoughtbot/vim-rspec.git

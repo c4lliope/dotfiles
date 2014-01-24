@@ -26,12 +26,14 @@ map <Leader>d :bd<CR>
 map <Leader>j :bn<CR>
 map <Leader>k :bp<CR>
 
+" Better searching
 set hlsearch
+set ignorecase
+set smartcase
 
 " Open split windows properly
 set splitbelow
 set splitright
-
 
 " For navigating split windows
 noremap <C-J> <C-W><C-j>
@@ -42,3 +44,15 @@ noremap <C-H> <C-W><C-h>
 " Allow buffers to be backgrounded
 " even if they have unsaved changes
 set hidden
+
+" RSpec.vim mappings
+if executable("spring")
+  let g:rspec_command = "!spring rspec {spec}"
+endif
+map <Leader>sf :call RunCurrentSpecFile()<CR>
+map <Leader>ss :call RunNearestSpec()<CR>
+map <Leader>sl :call RunLastSpec()<CR>
+map <Leader>sa :call RunAllSpecs()<CR>
+
+" Open files
+map <Leader>o :!open %<CR>
