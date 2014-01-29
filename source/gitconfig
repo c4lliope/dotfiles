@@ -4,32 +4,34 @@
 [color]
   ui = true
 [alias]
-  s = 'status'
-  d = 'diff'
-  b = 'branch'
-  a = 'add'
-  m = 'merge'
-  c = 'commit'
-  co = 'checkout'
-  j = 'pull'
-  k = 'push'
-  r = 'remote'
-  h = 'help'
-  lg1 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(cyan)(%ar)%C(reset) %C(white)%s%C(reset) %C(yellow)— %aN%C(reset)%C(blue)%d%C(reset)' --abbrev-commit --date=relative
+  s = status
+  d = diff
+  b = branch
+  a = add
+  ap = add -p
+  m = merge
+  c = commit
+  co = checkout
+  j = pull
+  k = push
+  r = remote
+  h = help
+  rb = rebase -i
+  lg1 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(cyan)(%ar)%C(reset) %s %C(yellow)— %aN%C(reset)%C(blue)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(green)%aD%C(reset) %C(cyan)(%ar)%C(reset)%C(blue)%d%C(reset)%n''          %C(white)%s%C(reset) %C(yellow)— %an%C(reset)' --abbrev-commit
   lg = !"git lg1"
+  st = stash
+  sst = stash save --keep-index
+  stage = push staging master
 
-  an = 'annex'
+  an = annex
 [core]
   editor = /usr/bin/vim
-  excludesfile = /Users/graysonwright/.gitignore
-
-[credential]
-  helper = /opt/boxen/bin/boxen-git-credential
+  excludesfile = ~/.gitignore
 
 [hub]
-#protocol = https
+  protocol = https
 [push]
   default = current
 [github]
-	user = graysonwright
+  user = graysonwright
