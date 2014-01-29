@@ -1,13 +1,13 @@
-
 # Shortcuts for ssh
-alias sshcse='ssh wrightg7@cse.msu.edu'
-alias sshicpc='ssh -X grayson@icpc.cse.msu.edu'
+alias sshcse='ssh wrightg7@arctic.cse.msu.edu'
 alias sshstudio='ssh melindaw@melindawrightstudio.com'
-alias sshta='ssh ta231010@cse.msu.edu'
 alias sshcruise='ssh 435cruise3@cse.msu.edu'
-alias sshacm='ssh acm@acm.cse.msu.edu'
+alias sshacm='ssh grayson@acm.cse.msu.edu'
 alias sshorithena='ssh grayson@orithena.cas.msu.edu'
 alias sshimac='ssh grayson@imac.devices.graysonwright.com'
+alias sshme='ssh graysonwright.com'
+alias sshorolo='ssh orolo.cas.msu.edu'
+alias sshcarbon='ssh grayson@carboncash.co'
 
 # shortcuts -- every keystroke counts!
 alias l='ls'
