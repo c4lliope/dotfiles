@@ -7,3 +7,6 @@
 [submodule "source/vim/bundle/rspec"]
 	path = source/vim/bundle/rspec
 	url = git@github.com:thoughtbot/vim-rspec.git
+[submodule "source/vim/bundle/buffergator"]
+	path = source/vim/bundle/buffergator
+	url = git@github.com:jeetsukumaran/vim-buffergator.git
