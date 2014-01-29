@@ -16,15 +16,43 @@ alias la='ls -A'
 alias cls='clear; pwd; echo; ls'
 alias cll='clear; pwd; echo; ll'
 alias cla='clear; pwd; echo; la'
-alias g='git'
-alias git='hub'
-alias glg='g lg | h; echo'
-alias gls='clear; pwd; echo; ls; echo; git s'
+alias cp='cp -r'
+alias rm='rm -r'
 alias h='head'
-alias retag='ctags -R --exclude=.svnignore --exclude=.git --exclude=log --exclude=tmp *'
+alias retag='ctags -R --exclude=.gitignore --exclude=.git --exclude=log --exclude=tmp *'
 alias ag='ag -i'
 alias flogit='find . -name \*.rb | xargs flog'
 alias flayit='find . -name \*.rb | xargs flay'
+alias ff='flogit && flayit'
+alias ss='spring stop'
+alias spec='spring rspec'
+alias b='bundle'
+alias v='vim'
+alias hi="history | more"
+alias s="spring"
+
+## Git Shortcuts
+alias g='git'
+alias git='hub'
+alias glg='g lg | h; echo'
+alias gls='clear; pwd; echo; git s; echo; ls'
+alias gl='gls && glg'
+alias ga='g a'
+alias gap='g a -p'
+alias gittyup='git push'
+alias gw='g c -a -m "wip"'
+alias gca='g commit --amend'
+alias y='g c' ## For catching an extra `y` after running `gap`
+
+alias gource='gource --max-files 0 -s .3 -i 0'
+
+# Rails environments
+alias Rt='RAILS_ENV=test'
+alias Rd='RAILS_ENV=development'
+alias Rp='RAILS_ENV=production'
+
+# Mistakes
+alias lgs='gls'
 
 # Notifications for after long-running jobs
 alias notify='terminal-notifier -message "Task done!"; bell'
@@ -40,10 +68,16 @@ alias .b='. ~/.bash_profile ~/.bashrc'
 alias ..a='vi ~/.bash_aliases; .a'
 alias ..b='vi ~/.bash_profile ~/.bashrc; .b'
 alias ..g='vi ~/.gitconfig'
+alias ..v='vi ~/.vimrc'
+alias ..t='vi ~/tools.md'
+
+alias tc="top-commands"
+alias tca="top-commands-all"
 
 alias be='bundle exec'
 alias ra='rake'
 alias r='rails'
+alias db='be rake db:migrate && rake db:test:prepare'
 #alias rake='bundle exec rake'
 
 # Keep track of device locations
