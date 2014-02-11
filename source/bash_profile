@@ -1,4 +1,7 @@
+# Essentials
+export EDITOR=vim
 export CLICOLOR=1
+set -o vi
 
 function git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
@@ -17,7 +20,7 @@ parse_git_dirty() {
     echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
   fi
 }
-export PS1='✪ \[\e[0;22m\]\h\[\e[m\] \[\e[0;33m\]\W\[\e[m\] \[\e[0;34m\]$(git_prompt_info)\[\e[m\] \[\e[0;33m\]>\[\e[m\] '
+export PS1='\[\e[0;33m\]✪ \[\e[0;22m\]\h\[\e[m\] \[\e[0;33m\]\W\[\e[m\] \[\e[0;34m\]$(git_prompt_info)\[\e[m\] \[\e[0;33m\]>\[\e[m\] '
 
 ## other good icons
 
@@ -32,11 +35,8 @@ PATH="/usr/local/bin:$PATH"
 
 ## For chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
-chruby 2.0
+chruby ruby
 source /usr/local/opt/chruby/share/chruby/auto.sh
-
-## For git-annex
-PATH="$PATH:/Applications/git-annex.app/Contents/MacOS"
 
 ## For user-defined functions
 PATH="$HOME/bin:$PATH"
