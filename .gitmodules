@@ -10,3 +10,6 @@
 [submodule "source/vim/bundle/buffergator"]
 	path = source/vim/bundle/buffergator
 	url = git@github.com:jeetsukumaran/vim-buffergator.git
+[submodule "source/vim/bundle/syntastic"]
+	path = source/vim/bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
