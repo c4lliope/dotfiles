@@ -62,8 +62,12 @@ map <Leader>sa :call RunAllSpecs()<CR>
 map <Leader>o :!open %<CR>
 
 " Quicker opening and closing of folds
+" TODO automatic folds based on filetype
 map <Leader><Space> za
 
+" TODO map capital U to 'redo' (ctrl-r)
+
 " Mark long lines
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
+set colorcolumn=81
