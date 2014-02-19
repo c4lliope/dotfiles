@@ -24,13 +24,11 @@
   sst = stash save --keep-index
   stage = push staging master
 
-  an = annex
+  issues = browse -- issues
+
 [core]
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
-
-[hub]
-  protocol = https
 [push]
   default = current
 [github]
