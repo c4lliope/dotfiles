@@ -19,6 +19,7 @@ alias b='bundle'
 alias v='vim'
 alias hi="history | more"
 alias s="spring"
+alias jformat="python -mjson.tool"
 
 ## Git Shortcuts
 alias g='git'
