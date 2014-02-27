@@ -1,6 +1,25 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtimeath to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+" Plugins, managed with vundle
+Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rails'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/syntastic'
+Bundle 'jeetsukumaran/vim-buffergator'
+
+
 let mapleader=" "
 
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
