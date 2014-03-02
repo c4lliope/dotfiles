@@ -16,6 +16,12 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/syntastic'
 Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'itchyny/lightline.vim'
+
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+
+runtime macros/matchit.vim
 
 
 let mapleader=" "
