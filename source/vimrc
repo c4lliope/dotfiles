@@ -30,6 +30,9 @@ set background=light
 map <Leader>v :e ~/.vimrc<CR>
 autocmd! bufwritepost .vimrc source %
 
+" Fast editing of ~/tools.md file
+map <Leader>t :e ~/tools.md<CR>
+
 " Fast movement within a file
 set relativenumber
 
