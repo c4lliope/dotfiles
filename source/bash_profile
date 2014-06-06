@@ -34,9 +34,9 @@ PATH="/usr/local/sbin:$PATH"
 PATH="/usr/local/bin:$PATH"
 
 ## For chruby
-source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/share/chruby/chruby.sh
 chruby ruby
-source /usr/local/opt/chruby/share/chruby/auto.sh
+source /usr/local/share/chruby/auto.sh
 
 ## For user-defined functions
 PATH="$HOME/bin:$PATH"

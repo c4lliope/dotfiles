@@ -69,11 +69,12 @@ alias ..t='vi ~/tools.md'
 alias tc="top-commands"
 alias tca="top-commands-all"
 
+# Rails stuff
 alias be='bundle exec'
 alias ra='rake'
 alias r='rails'
 alias db='be rake db:migrate && rake db:test:prepare'
-#alias rake='bundle exec rake'
+alias deploy='be cap production deploy'
 
 # Keep track of device locations
 alias devices='dnsimple record:list graysonwright.com'
