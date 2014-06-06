@@ -2,26 +2,10 @@ Host cse
   HostName arctic.cse.msu.edu
   User wrightg7
 
-Host acm
-  HostName acm.cse.msu.edu
-  User grayson
-
-Host orithena
-  HostName orithena.cas.msu.edu
-  User grayson
-
 Host me
   HostName graysonwright.com
   User grayson
 
 Host carbon
-  HostName carboncash.co
+  HostName api.carboncash.co
   User deploy
-
-Host orithena
-  HostName orithena.cas.msu.edu
-  User grayson
-
-Host orolo
-  HostName orolo.cas.msu.edu
-  User grayson
