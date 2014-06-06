@@ -9,9 +9,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Plugins, managed with vundle
+" Run `:BundleInstall` to install or update
 Bundle 'tpope/vim-sensible'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-fugitive'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/syntastic'
@@ -41,6 +45,10 @@ map <Leader>t :e ~/tools.md<CR>
 
 " Fast movement within a file
 set relativenumber
+
+" Highlight the location in the file
+set cursorline
+set cursorcolumn
 
 " Use 2 spaces as a tab
 set expandtab
@@ -78,16 +86,13 @@ noremap <C-H> <C-W><C-H>
 set hidden
 
 " RSpec.vim mappings
-if executable("spring")
-  let g:rspec_command = "!spring rspec {spec}"
-endif
 map <Leader>sf :call RunCurrentSpecFile()<CR>
 map <Leader>ss :call RunNearestSpec()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
 map <Leader>sa :call RunAllSpecs()<CR>
 
 " Open files
-map <Leader>o :!open %<CR>
+map <Leader>o :!open "%"<CR>
 
 " Quicker opening and closing of folds
 " TODO automatic folds based on filetype
