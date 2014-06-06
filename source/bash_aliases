@@ -35,6 +35,12 @@ alias y='g c' ## For catching an extra `y` after running `gap`
 
 alias gource='gource --max-files 0 -s .3 -i 0'
 
+## Tmux Shortcuts
+alias t='tmux'
+alias 'tmls'='t list-sessions'
+alias 'tmn'='t new -s'
+alias 'tma'='t attach -t'
+
 # Rails environments
 alias Rt='RAILS_ENV=test'
 alias Rd='RAILS_ENV=development'
