@@ -87,6 +87,7 @@ noremap <C-H> <C-W><C-H>
 set hidden
 
 " RSpec.vim mappings
+let g:rspec_command = "!clear && rspec --profile -- {spec}"
 map <Leader>sf :call RunCurrentSpecFile()<CR>
 map <Leader>ss :call RunNearestSpec()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
