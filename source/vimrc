@@ -41,6 +41,16 @@ set background=light
 nnoremap <Leader>v :e ~/.vimrc<CR>
 autocmd! bufwritepost .vimrc source %
 
+" Check spelling when writing plain text
+autocmd BufNewFile,BufRead *.md setlocal spell
+autocmd BufNewFile,BufRead *.md setlocal textwidth=80
+autocmd BufNewFile,BufRead *.mkd setlocal spell
+autocmd BufNewFile,BufRead *.mkd setlocal textwidth=80
+autocmd BufNewFile,BufRead *.txt setlocal spell
+autocmd BufNewFile,BufRead *.txt setlocal textwidth=80
+autocmd BufNewFile,BufRead *.yml setlocal spell
+set complete+=kspell
+
 " Fast editing of ~/tools.md file
 nnoremap <Leader>t :e ~/tools.md<CR>
 
