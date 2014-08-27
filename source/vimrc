@@ -112,7 +112,8 @@ nnoremap <Leader>o :!open "%"<CR>
 " TODO automatic folds based on filetype
 nnoremap <Leader><Space> za
 
-" TODO map capital U to 'redo' (ctrl-r)
+" use capital U for 'redo' (ctrl-r)
+nnoremap U <C-r>
 
 " Mark long lines
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
