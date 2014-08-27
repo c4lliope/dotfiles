@@ -38,11 +38,11 @@ colorscheme solarized
 set background=light
 
 " Fast editing of .vimrc file
-map <Leader>v :e ~/.vimrc<CR>
+nnoremap <Leader>v :e ~/.vimrc<CR>
 autocmd! bufwritepost .vimrc source %
 
 " Fast editing of ~/tools.md file
-map <Leader>t :e ~/tools.md<CR>
+nnoremap <Leader>t :e ~/tools.md<CR>
 
 " Fast movement within a file
 set relativenumber
@@ -56,12 +56,13 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-" Quickly open/close buffers
-map <Leader>w :w<CR>
-map <Leader>q :q<CR>
-map <Leader>d :bd<CR>
-map <Leader>j :bn<CR>
-map <Leader>k :bp<CR>
+" Quickly open/save/close buffers
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>x :x<CR>
+nnoremap <Leader>d :bd<CR>
+nnoremap <Leader>j :bn<CR>
+nnoremap <Leader>k :bp<CR>
 
 " Better searching
 set hlsearch
@@ -94,11 +95,11 @@ map <Leader>sl :call RunLastSpec()<CR>
 map <Leader>sa :call RunAllSpecs()<CR>
 
 " Open files
-map <Leader>o :!open "%"<CR>
+nnoremap <Leader>o :!open "%"<CR>
 
 " Quicker opening and closing of folds
 " TODO automatic folds based on filetype
-map <Leader><Space> za
+nnoremap <Leader><Space> za
 
 " TODO map capital U to 'redo' (ctrl-r)
 
