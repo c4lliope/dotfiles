@@ -4,7 +4,7 @@
 [color]
   ui = true
 [alias]
-  s = status
+  s = status --short
   d = diff
   b = branch
   a = add
