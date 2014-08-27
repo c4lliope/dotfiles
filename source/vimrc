@@ -98,11 +98,12 @@ noremap <C-H> <C-W><C-H>
 set hidden
 
 " RSpec.vim mappings
-let g:rspec_command = "!clear && rspec --profile -- {spec}"
-map <Leader>sf :call RunCurrentSpecFile()<CR>
-map <Leader>ss :call RunNearestSpec()<CR>
-map <Leader>sl :call RunLastSpec()<CR>
-map <Leader>sa :call RunAllSpecs()<CR>
+let g:rspec_command = "w \| !clear && bundle exec rspec -- {spec}"
+nnoremap <Leader>sf :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>ss :call RunNearestSpec()<CR>
+nnoremap <Leader>sl :call RunLastSpec()<CR>
+nnoremap <Leader>sa :call RunAllSpecs()<CR>
+nnoremap <Leader>sr :w<CR> \| :!bundle exec rake<CR>
 
 " Open files
 nnoremap <Leader>o :!open "%"<CR>
