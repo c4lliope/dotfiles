@@ -58,10 +58,10 @@ alias sleep!='pmset sleepnow'
 
 # Reloading config files
 alias .a='. ~/.bash_aliases'
-alias .b='. ~/.bash_profile ~/.bashrc'
+alias .z='. ~/.zshrc'
 # Editing config files
-alias ..a='vi ~/.bash_aliases; .a'
-alias ..b='vi ~/.bash_profile; .b'
+alias ..a='vi ~/.aliases; .a'
+alias ..z='vi ~/.zshrc; .z'
 alias ..g='vi ~/.gitconfig'
 alias ..v='vi ~/.vimrc'
 alias ..t='vi ~/tools.md'
