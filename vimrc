@@ -18,13 +18,16 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 Bundle 'thoughtbot/vim-rspec'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/syntastic'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'itchyny/lightline.vim'
 
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
+
+" Colorschemes
+Bundle 'chriskempson/base16-vim'
+Bundle 'altercation/vim-colors-solarized'
 
 runtime macros/matchit.vim
 
@@ -34,8 +37,9 @@ let mapleader=" "
 syntax on
 filetype plugin indent on
 
-colorscheme solarized
-set background=light
+colorscheme base16-default
+set background=dark
+highlight LineNr ctermbg=none
 
 " Fast editing of .vimrc file
 nnoremap <Leader>v :e ~/.vimrc<CR>
@@ -56,10 +60,7 @@ nnoremap <Leader>t :e ~/tools.md<CR>
 
 " Fast movement within a file
 set relativenumber
-
-" Highlight the location in the file
-set cursorline
-set cursorcolumn
+set number
 
 " Use 2 spaces as a tab
 set expandtab
@@ -116,9 +117,8 @@ nnoremap <Leader><Space> za
 nnoremap U <C-r>
 
 " Mark long lines
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
-set colorcolumn=81
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 " Quickly toggle paste mode
 nnoremap <Leader>p :set invpaste paste?<CR>
