@@ -31,7 +31,6 @@ Bundle 'altercation/vim-colors-solarized'
 
 runtime macros/matchit.vim
 
-
 let mapleader=" "
 
 syntax on
@@ -40,6 +39,7 @@ filetype plugin indent on
 colorscheme base16-default
 set background=dark
 highlight LineNr ctermbg=none
+highlight CursorLineNr ctermbg=none ctermfg=yellow
 
 " Fast editing of .vimrc file
 nnoremap <Leader>v :e ~/.vimrc<CR>
@@ -119,6 +119,9 @@ nnoremap U <C-r>
 " Mark long lines
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·
 
 " Quickly toggle paste mode
 nnoremap <Leader>p :set invpaste paste?<CR>
