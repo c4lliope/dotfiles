@@ -22,6 +22,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'itchyny/lightline.vim'
 
+Bundle 'kien/ctrlp.vim'
+
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 
