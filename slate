@@ -1,0 +1,24 @@
+config defaultToCurrentScreen true
+
+# Shows app icons and background apps, spreads icons in the same place
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+# Abstract positions
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias leftHalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias rightHalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+
+alias meta cmd;shift
+
+# monitor:cols,rows
+bind g:${meta} grid padding:5 0:6,6
+bind s:${meta} hint ASDFGHJKLQWERTYUIOPZXCVBNM
+
+bind h:${meta} ${leftHalf}
+bind l:${meta} ${rightHalf}
+bind f:${meta} ${full}
+
+bind c:${meta} focus "Google Chrome"
+bind t:${meta} focus "iTerm"

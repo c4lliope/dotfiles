@@ -45,6 +45,9 @@ highlight CursorLineNr ctermbg=none ctermfg=yellow
 nnoremap <Leader>v :e ~/.vimrc<CR>
 autocmd! bufwritepost .vimrc source %
 
+" Automatic reloading of Slate configuration
+autocmd! bufwritepost .slate !killall "Slate" && open -a Slate
+
 " Check spelling when writing plain text
 autocmd BufNewFile,BufRead *.md setlocal spell
 autocmd BufNewFile,BufRead *.md setlocal textwidth=80

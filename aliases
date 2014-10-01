@@ -60,12 +60,14 @@ alias sleep!='pmset sleepnow'
 # Reloading config files
 alias .a='. ~/.aliases'
 alias .z='. ~/.zshrc'
+alias .s='killall "Slate" && open -a Slate'
 # Editing config files
 alias ..a='vi ~/.aliases; .a'
 alias ..z='vi ~/.zshrc; .z'
 alias ..g='vi ~/.gitconfig'
 alias ..v='vi ~/.vimrc'
 alias ..t='vi ~/tools.md'
+alias ..s='vi ~/.slate; .s'
 
 alias tc="top-commands"
 alias tca="top-commands-all"
