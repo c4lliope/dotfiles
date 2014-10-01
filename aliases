@@ -28,6 +28,7 @@ alias gls='clear; pwd; echo; ls; echo; git s'
 alias gl='gls && glg'
 alias ga='g a'
 alias gap='g a -p'
+alias gpa='gap' # For typos
 alias gittyup='git push'
 alias gw='g c -a -m "wip"'
 alias gca='g commit --amend'
@@ -57,7 +58,7 @@ alias push='httparty -a post -r -d "token=AgWcEK3mj1BdXnhapJjz9mJDH18X1M&user=xn
 alias sleep!='pmset sleepnow'
 
 # Reloading config files
-alias .a='. ~/.bash_aliases'
+alias .a='. ~/.aliases'
 alias .z='. ~/.zshrc'
 # Editing config files
 alias ..a='vi ~/.aliases; .a'
@@ -73,7 +74,7 @@ alias tca="top-commands-all"
 alias be='bundle exec'
 alias ra='rake'
 alias r='rails'
-alias db='be rake db:migrate && rake db:test:prepare'
+alias db='be rake db:migrate'
 alias deploy='be cap production deploy'
 
 # Keep track of device locations
