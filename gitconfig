@@ -11,11 +11,14 @@
   ap = add -p
   m = merge
   c = commit
+  wip = commit -m 'WIP'
   co = checkout
   j = pull
   k = push
   r = remote
   h = help
+  i = !"vi .gitignore"
+  e = !"vi .git/info/exclude"
   rb = rebase -i
   lg1 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(cyan)(%ar)%C(reset) %s %C(yellow)— %aN%C(reset)%C(blue)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(green)%aD%C(reset) %C(cyan)(%ar)%C(reset)%C(blue)%d%C(reset)%n''          %C(white)%s%C(reset) %C(yellow)— %an%C(reset)' --abbrev-commit
@@ -25,6 +28,7 @@
   stage = push staging master
 
   issues = browse -- issues
+  trust = !"mkdir .git/safe"
 
 [core]
   editor = /usr/bin/vim
