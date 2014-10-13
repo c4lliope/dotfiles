@@ -20,6 +20,8 @@ alias hi="history | more"
 alias s="spring"
 alias jformat="python -mjson.tool"
 
+alias serve="python -m SimpleHTTPServer"
+
 ## Git Shortcuts
 alias g='git'
 alias git='hub'
@@ -94,6 +96,11 @@ function mkcd()
   mkdir $1
   cd $1
 }
+function openfile()
+{
+  open $1 && exit
+}
+alias of="openfile"
 
 # Make things colorful!
 alias grep='grep --color=auto'
