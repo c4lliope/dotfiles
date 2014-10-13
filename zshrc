@@ -49,7 +49,29 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=".git/safe/../../bin:/Users/grayson/bin:/usr/local/bin:/usr/local/sbin:/Users/grayson/.rbenv/shims:/Users/grayson/.rbenv/bin:/usr/local/opt/nvm/v0.10.31/bin:/usr/local/bin:/Users/grayson/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/lib/node_modules:/usr/local/share/npm/bin:/usr/local/share/npm/bin"
+export PATH="$HOME/.bin"                # Functions in dotfiles
+export PATH="$PATH:.git/safe/../../bin" # Binstubs in trusted git repos
+export PATH="$PATH:/usr/local/bin"      # Homebrew-installed executables
+
+# Rbenv
+export PATH="$PATH:$HOME/.rbenv/bin"
+export PATH="$PATH:$HOME/.rbenv/shims"
+export PATH="$PATH:$HOME/.rbenv/bin"
+
+# NPM
+export PATH="$PATH:/usr/local/lib/node_modules"
+export PATH="$PATH:/usr/local/share/npm/bin"
+export PATH="$PATH:/usr/local/opt/nvm/v0.10.31/bin"
+
+export PATH="$PATH:/usr/bin"            # OS X system executables
+export PATH="$PATH:/bin"                # Basic shell executables (e.g. ls, cat)
+
+# Root-level system executables (sbin paths)
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/sbin"
+export PATH="$PATH:/sbin"
+export PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -66,22 +88,12 @@ if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
-export PATH="$HOME/bin:$PATH"
-
 # recommended by brew doctor
-export PATH="/usr/local/bin:$PATH"
-export PATH="$PATH:/usr/local/lib/node_modules"
 source $(brew --prefix nvm)/nvm.sh
-export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 
 # Add OpenSSL certificates, provided by HomeBrew
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
-
-## For user-defined functions
-PATH="$HOME/bin:$PATH"
-PATH=".git/safe/../../bin:$PATH"
-export PATH
 
 export HOMEBREW_GITHUB_API_TOKEN=108e4060d8e0bee51d3b0fd66813af87f94c1f24
 
