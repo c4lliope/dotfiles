@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-sensible'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-fugitive'
@@ -81,7 +82,6 @@ nnoremap <Leader>j :bn<CR>
 nnoremap <Leader>k :bp<CR>
 
 " Better searching
-set hlsearch
 set ignorecase
 set smartcase
 
