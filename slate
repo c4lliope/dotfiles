@@ -9,13 +9,16 @@ config windowHintsSpread true
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
 alias leftHalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias rightHalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias topHalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias bottomHalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
 
-alias meta cmd;shift
+alias meta alt,space
 
-# monitor:cols,rows
+# SYNTAX: monitor:cols,rows
 bind g:${meta} grid padding:5 0:6,6
-bind s:${meta} hint ASDFGHJKLQWERTYUIOPZXCVBNM
 
+bind k:${meta} ${topHalf}
+bind j:${meta} ${bottomHalf}
 bind h:${meta} ${leftHalf}
 bind l:${meta} ${rightHalf}
 bind f:${meta} ${full}
