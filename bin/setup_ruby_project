@@ -1,8 +1,11 @@
 echo 'source "https://rubygems.org"
 
-gem "rspec", "~> 3.0.0"
-gem "fuubar", "~> 2.0.0"
-gem "warning_filter", "~> 0.0.2"
+group :development, :test do
+  gem "rake", "~> 10.3.2"
+  gem "rspec", "~> 3.0.0"
+  gem "fuubar", "~> 2.0.0"
+  gem "warning_filter", "~> 0.0.2"
+end
 ' > Gemfile
 
 bundle
@@ -10,6 +13,7 @@ bundle
 echo '
 --format Fuubar
 --require spec_helper
+--color
 ' > .rspec
 
 mkdir spec
@@ -20,6 +24,16 @@ RSpec.configure do |config|
   config.warnings = true
 end
 ' > spec/spec_helper.rb
+
+echo '
+task default: :spec
+
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+end
+' > Rakefile
 
 git init
 git add .
