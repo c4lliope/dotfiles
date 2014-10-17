@@ -1,0 +1,28 @@
+echo 'source "https://rubygems.org"
+
+gem "rspec", "~> 3.0.0"
+gem "fuubar", "~> 2.0.0"
+gem "warning_filter", "~> 0.0.2"
+' > Gemfile
+
+bundle
+
+echo '
+--format Fuubar
+--require spec_helper
+' > .rspec
+
+mkdir spec
+echo '
+require "warning_filter"
+
+RSpec.configure do |config|
+  config.warnings = true
+end
+' > spec/spec_helper.rb
+
+git init
+git add .
+git commit -m "Initial commit, add RSpec for testing"
+
+rspec
