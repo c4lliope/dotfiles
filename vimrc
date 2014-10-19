@@ -22,6 +22,7 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'scrooloose/syntastic'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'itchyny/lightline.vim'
+Bundle 'rking/ag.vim'
 
 Bundle 'kien/ctrlp.vim'
 
@@ -31,6 +32,8 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 " Colorschemes
 Bundle 'chriskempson/base16-vim'
 Bundle 'altercation/vim-colors-solarized'
+
+source ~/.vim/config/ctrlp.vim
 
 runtime macros/matchit.vim
 
@@ -130,18 +133,6 @@ set list listchars=tab:»·,trail:·
 
 " Quickly toggle paste mode
 nnoremap <Leader>p :set invpaste paste?<CR>
-
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
