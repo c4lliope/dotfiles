@@ -6,23 +6,47 @@ config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
 config modalEscapeKey esc
 
+alias height screenSizeY
+alias width screenSizeX
+
+# Important anchor points on the screen
+alias screenOrigin screenOriginX;screenOriginY
+alias topMiddlePoint screenOriginX+${width}/2;screenOriginY
+alias leftMiddlePoint screenOriginX;screenOriginY+${height}/2
+alias centerPoint screenOriginX+${width}/2;screenOriginY+${height}/2
+
 # Abstract positions
-alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
-alias leftHalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
-alias rightHalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
-alias topHalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
-alias bottomHalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias full ${screenOrigin} ${width};${height}
+
+# Half size positions
+alias leftHalf ${screenOrigin} ${width}/2;${height}
+alias rightHalf ${topMiddlePoint} ${width}/2;${height}
+alias topHalf ${screenOrigin} ${width};${height}/2
+alias bottomHalf ${leftMiddlePoint} ${width};${height}/2
+
+# Quarter size positions
+alias quarterSize ${width}/2;${height}/2
+
+alias topLeft ${screenOrigin} ${quarterSize}
+alias bottomLeft ${leftMiddlePoint} ${quarterSize}
+alias topRight ${topMiddlePoint} ${quarterSize}
+alias bottomRight ${centerPoint} ${quarterSize}
 
 alias meta alt,space
 
 # SYNTAX: monitor:cols,rows
 bind g:${meta} grid padding:5 0:6,6
 
-bind k:${meta} ${topHalf}
-bind j:${meta} ${bottomHalf}
-bind h:${meta} ${leftHalf}
-bind l:${meta} ${rightHalf}
-bind f:${meta} ${full}
+bind k:${meta} move ${topHalf}
+bind j:${meta} move ${bottomHalf}
+bind h:${meta} move ${leftHalf}
+bind l:${meta} move ${rightHalf}
+bind f:${meta} move ${full}
+
+bind y:${meta} move ${topLeft}
+bind n:${meta} move ${bottomLeft}
+bind m:${meta} move ${bottomRight}
+bind u:${meta} move ${topRight}
 
 bind c:${meta} focus "Google Chrome"
 bind t:${meta} focus "iTerm"
