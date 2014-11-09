@@ -119,6 +119,9 @@ nnoremap <Leader>sl :call RunLastSpec()<CR>
 nnoremap <Leader>sa :call RunAllSpecs()<CR>
 nnoremap <Leader>sr :w<CR> \| :!bundle exec rake<CR>
 
+" Run C++ files
+nnoremap <Leader>m :w \| :!g++ --std=c++11 % && ./a.out<CR>
+
 " Open files
 nnoremap <Leader>o :!open "%"<CR>
 
