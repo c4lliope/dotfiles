@@ -19,6 +19,7 @@ alias v='vim'
 alias hi="history | more"
 alias s="spring"
 alias jformat="python -mjson.tool"
+alias vi="vim"
 
 alias serve="python -m SimpleHTTPServer"
 
