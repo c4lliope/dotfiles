@@ -34,6 +34,7 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'altercation/vim-colors-solarized'
 
 source ~/.vim/config/ctrlp.vim
+source ~/.vim/config/text_expansion.vim
 
 set noswapfile
 
