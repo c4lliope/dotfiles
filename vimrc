@@ -84,6 +84,9 @@ nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>j :bn<CR>
 nnoremap <Leader>k :bp<CR>
 
+cnoremap %% <C-R>=expand('%:h').'/'<CR>
+nmap <Leader>e :edit %%
+
 " Better searching
 set ignorecase
 set smartcase
@@ -117,9 +120,7 @@ nnoremap <Leader>sr :w<CR> \| :!bundle exec rake<CR>
 " Open files
 nnoremap <Leader>o :!open "%"<CR>
 
-" Quicker opening and closing of folds
-" TODO automatic folds based on filetype
-nnoremap <Leader><Space> za
+nnoremap <Leader><Leader> <C-^>
 
 " use capital U for 'redo' (ctrl-r)
 nnoremap U <C-r>
@@ -136,3 +137,10 @@ nnoremap <Leader>p :set invpaste paste?<CR>
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" fuGITive shortcuts
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gw :Gcommit -m "WIP"<CR>
+nnoremap <Leader>ga :Git add .<CR>
+nnoremap <Leader>gr :Git rebase -i master<CR>
