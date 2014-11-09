@@ -35,6 +35,8 @@ Bundle 'altercation/vim-colors-solarized'
 
 source ~/.vim/config/ctrlp.vim
 
+set noswapfile
+
 runtime macros/matchit.vim
 
 let mapleader=" "
