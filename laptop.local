@@ -1,0 +1,74 @@
+#!/bin/sh
+
+brew install wget
+
+echo "Install rbenv-bundler, so we can stop \"bundle exec\"-ing things"
+brew install rbenv-bundler
+
+echo "Installing Oh-My-ZSH by @robbyrussel"
+curl -L http://install.ohmyz.sh | sh
+
+echo "We'll use Homebrew Cask to install large binaries"
+brew tap caskroom/cask
+brew install brew-cask
+
+echo "Installing Caffeine to keep the computer awake"
+brew cask install caffeine
+open -a Caffeine
+
+echo "Installing iTerm2, a good Terminal program"
+brew cask install iterm2
+
+echo "Installing Google Chrome, a good web browser"
+brew cask install google-chrome
+
+echo "Installing Spotify, for tunes!"
+brew cask install spotify
+
+echo "Installing VLC, a good media player"
+brew cask install vlc
+
+echo "Install Apptrap to clean things up"
+brew cask install apptrap
+
+echo "upgrade from Qt 4 to Qt 5, for better JS support in capybara-webkit"
+brew remove qt4
+brew install qt5
+brew link --force qt5
+
+# echo "Installing Marked, a markdown previewer"
+# brew cask install marked
+
+echo "Installing Slate for fast window management"
+brew cask install slate
+open -a Slate
+
+echo "Installing Seil, which lets you remap caps lock to escape"
+brew cask install seil
+echo "Opening Seil so you can configure caps lock -> escape mapping"
+open -a Seil
+open -a 'System Preferences'
+echo "Press Enter to continue"
+read
+
+echo "Installing Adobe Creative Cloud, for getting awesome fonts from TypeKit"
+brew cask install adobe-creative-cloud
+if [ -d "/Applications/Adobe Creative Cloud" ]; then
+  echo "It looks like Adobe Creative Cloud is already installed, skipping installer"
+else
+  echo "Running installer for Creative Cloud"
+  open '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
+fi
+
+echo "Now might also be a good time to set the mouse to 'tap-to-click' mode. I'll wait."
+echo "And while you're at it, why don't you max out that keyboard repeat rate?"
+open -a 'System Preferences'
+echo "Press Enter to continue"
+read
+
+echo "Installing RC files from github using RCM"
+git clone git@github.com:graysonwright/dotfiles ~/.dotfiles
+rcup -v
+
+echo
+echo "You're all set! Happy developing!"
