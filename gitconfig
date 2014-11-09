@@ -6,9 +6,11 @@
 [alias]
   s = status --short
   d = diff
+  dc = diff --cached
   b = branch
   a = add
   ap = add -p
+  rh = reset HEAD
   m = merge
   c = commit
   wip = commit -m 'WIP'
@@ -20,7 +22,7 @@
   i = !"vi .gitignore"
   e = !"vi .git/info/exclude"
   rb = rebase -i
-  lg1 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(cyan)(%ar)%C(reset) %s %C(yellow)— %aN%C(reset)%C(blue)%d%C(reset)' --abbrev-commit --date=relative
+  lg1 = log --graph --all --format=format:'%C(red)%h%C(reset) %C(cyan)(%ar)%C(reset) %s %C(yellow)-%aN%C(reset)%C(blue)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(green)%aD%C(reset) %C(cyan)(%ar)%C(reset)%C(blue)%d%C(reset)%n''          %C(white)%s%C(reset) %C(yellow)— %an%C(reset)' --abbrev-commit
   lg = !"git lg1"
   st = stash
