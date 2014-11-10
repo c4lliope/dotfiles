@@ -154,3 +154,10 @@ nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gw :Gcommit -m "WIP"<CR>
 nnoremap <Leader>ga :Git add .<CR>
 nnoremap <Leader>gr :Git rebase -i master<CR>
+
+" Create parent directories when they don't exist for a new file
+function! WriteWithParentDirs()
+  execute ':silent !mkdir -p %:h'
+  write
+endfunction
+command! W call WriteWithParentDirs()
