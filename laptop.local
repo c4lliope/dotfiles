@@ -45,11 +45,6 @@ open -a Slate
 
 echo "Installing Seil, which lets you remap caps lock to escape"
 brew cask install seil
-echo "Opening Seil so you can configure caps lock -> escape mapping"
-open -a Seil
-open -a 'System Preferences'
-echo "Press Enter to continue"
-read
 
 echo "Installing Adobe Creative Cloud, for getting awesome fonts from TypeKit"
 brew cask install adobe-creative-cloud
@@ -60,15 +55,17 @@ else
   open '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
 fi
 
-echo "Now might also be a good time to set the mouse to 'tap-to-click' mode. I'll wait."
-echo "And while you're at it, why don't you max out that keyboard repeat rate?"
-open -a 'System Preferences'
-echo "Press Enter to continue"
-read
-
-echo "Installing RC files from github using RCM"
+echo "Installing dotfiles from github using RCM"
 git clone git@github.com:graysonwright/dotfiles ~/.dotfiles
 rcup -v
+echo "You may want to remove ~/.laptop.local, and then run 'rcup' again \
+  to keep updated with the dotfiles"
+
+echo "Opening Seil so you can configure caps lock -> escape mapping"
+open -a Seil
+echo "Opening System preferences."
+echo "I suggest enabling tap-to-click, and maxing out the keyboard repeat rate"
+open -a 'System Preferences'
 
 echo
 echo "You're all set! Happy developing!"
