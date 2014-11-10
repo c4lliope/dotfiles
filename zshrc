@@ -49,6 +49,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# recommended by brew doctor
+source $(brew --prefix nvm)/nvm.sh
+eval "$(rbenv init - zsh --no-rehash)"
+
 export PATH="$HOME/.bin"                # Functions in dotfiles
 export PATH="$PATH:.git/safe/../../bin" # Binstubs in trusted git repos
 export PATH="$PATH:/usr/local/bin"      # Homebrew-installed executables
@@ -70,6 +74,9 @@ export PATH="$PATH:/bin"                # Basic shell executables (e.g. ls, cat)
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:/sbin"
+
+export PATH="$PATH:/usr/local/opt/nvm/v0.10.31/bin"
+
 export PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -87,13 +94,6 @@ export EDITOR='vim'
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
-
-# recommended by brew doctor
-source $(brew --prefix nvm)/nvm.sh
-eval "$(rbenv init - zsh --no-rehash)"
-
-# Add OpenSSL certificates, provided by HomeBrew
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 export HOMEBREW_GITHUB_API_TOKEN=108e4060d8e0bee51d3b0fd66813af87f94c1f24
 
