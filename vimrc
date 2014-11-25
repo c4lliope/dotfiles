@@ -23,6 +23,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'itchyny/lightline.vim'
 Bundle 'rking/ag.vim'
+Bundle 'skwp/greplace.vim'
 
 Bundle 'kien/ctrlp.vim'
 
