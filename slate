@@ -44,9 +44,10 @@ bind l:${meta} move ${rightHalf}
 bind f:${meta} move ${full}
 
 bind y:${meta} move ${topLeft}
+bind u:${meta} move ${topLeft}
 bind n:${meta} move ${bottomLeft}
 bind m:${meta} move ${bottomRight}
-bind u:${meta} move ${topRight}
+bind i:${meta} move ${topRight}
 
 bind c:${meta} focus "Google Chrome"
 bind t:${meta} focus "iTerm"

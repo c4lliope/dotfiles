@@ -114,7 +114,7 @@ noremap <C-H> <C-W><C-H>
 set hidden
 
 " RSpec.vim mappings
-let g:rspec_command = "w \| !clear && rspec -- {spec}"
+let g:rspec_command = "w \| !clear && time rspec -- {spec}"
 nnoremap <Leader>sf :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>ss :call RunNearestSpec()<CR>
 nnoremap <Leader>sl :call RunLastSpec()<CR>
