@@ -93,15 +93,15 @@ alias mvi="mvim"
 
 # Useful functions
 function mkcd()
-{
-  mkdir $1
-  cd $1
-}
+  mkdir $1 && cd $1
+
 function openfile()
-{
   open $1 && exit
-}
+
 alias of="openfile"
+
+function gitbot()
+  hub clone thoughtbot/$1
 
 # Make things colorful!
 alias grep='grep --color=auto'
