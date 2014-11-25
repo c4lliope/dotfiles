@@ -135,6 +135,8 @@ nnoremap U <C-r>
 
 " Mark long lines
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd BufNewFile,BufRead *.log highlight OverLength ctermbg=none ctermfg=none guibg=none
+nnoremap <Leader>l :highlight OverLength ctermbg=none ctermfg=none guibg=none<CR>
 match OverLength /\%81v.\+/
 
 " Display extra whitespace
