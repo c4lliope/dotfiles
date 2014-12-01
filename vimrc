@@ -165,3 +165,10 @@ function! WriteWithParentDirs()
   write
 endfunction
 command! W call WriteWithParentDirs()
+
+inoremap kj <esc>
+inoremap jk <esc>
+inoremap <esc> <nop>
+vnoremap kj <esc>
+vnoremap jk <esc>
+vnoremap <esc> <nop>
