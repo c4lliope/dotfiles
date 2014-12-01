@@ -172,3 +172,11 @@ inoremap <esc> <nop>
 vnoremap kj <esc>
 vnoremap jk <esc>
 vnoremap <esc> <nop>
+
+"" Abbreviations
+iabbrev gh https://github.com
+iabbrev gw graysonwright
+iabbrev -- –
+
+" Ruby abbreviationss
+iabbrev init initialize
