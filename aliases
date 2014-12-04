@@ -103,6 +103,9 @@ alias of="openfile"
 function gitbot()
   hub clone thoughtbot/$1
 
+# Fuzzy searching for vim editing
+alias vis="vim \`tree -fiF | selecta\`"
+
 # Make things colorful!
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-brew install wget
+brew install wget tree selecta
 
 echo "Install rbenv-bundler, so we can stop \"bundle exec\"-ing things"
 brew install rbenv-bundler
