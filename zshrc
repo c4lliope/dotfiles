@@ -90,6 +90,10 @@ export EDITOR='vim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Key bindings
+bindkey -s ^f '`tree -Fif | selecta`^j'
+bindkey -s ^b '`git b -a | sed "s/remotes\\/origin\\///" | selecta`^j'
+
 # Alias definitions.
 if [ -f ~/.aliases ]; then
     source ~/.aliases
