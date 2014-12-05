@@ -105,6 +105,7 @@ function gitbot()
 
 # Fuzzy searching for vim editing
 alias vis="vim \`tree -fiF | selecta\`"
+alias gco="git checkout \`git b -a | sed 's/remotes\/origin\///' | selecta\`"
 
 # Make things colorful!
 alias grep='grep --color=auto'
