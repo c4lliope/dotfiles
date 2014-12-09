@@ -57,9 +57,8 @@ nnoremap <Leader>ev :e $MYVIMRC<CR>
 nnoremap <Leader>vv :vsp $MYVIMRC<CR>
 autocmd! bufwritepost .vimrc source %
 
-" Automatic reloading of Slate configuration
-autocmd! bufwritepost .slate !killall "Slate"; open -a Slate
-autocmd! bufwritepost .slate.js !killall "Slate"; open -a Slate
+" Automatic reloading of Phoenix configuration
+autocmd! bufwritepost .phoenix.js !killall "Phoenix"; open -a Phoenix
 
 " Check spelling when writing plain text
 autocmd BufNewFile,BufRead *.md setlocal spell
