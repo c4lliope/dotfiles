@@ -59,9 +59,12 @@ highlight LineNr ctermbg=none
 highlight CursorLineNr ctermbg=none ctermfg=yellow
 
 " Fast editing of .vimrc file
-nnoremap <Leader>ev :e $MYVIMRC<CR>
+nnoremap <Leader>ve :e $MYVIMRC<CR>
 nnoremap <Leader>vv :vsp $MYVIMRC<CR>
 autocmd! bufwritepost .vimrc source %
+
+" Open help in a vertical split
+nnoremap <leader>h :vert help 
 
 " Automatic reloading of Phoenix configuration
 autocmd! bufwritepost .phoenix.js !killall "Phoenix"; open -a Phoenix
