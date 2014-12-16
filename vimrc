@@ -22,9 +22,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 
-" Colorschemes
-Plug 'chriskempson/base16-vim'
-Plug 'altercation/vim-colors-solarized'
+Plug 'Lokaltog/vim-distinguished'
 
 call plug#end()
 
@@ -49,7 +47,7 @@ let mapleader=" "
 syntax on
 filetype plugin indent on
 
-colorscheme base16-default
+colorscheme distinguished
 set background=dark
 highlight LineNr ctermbg=none
 highlight CursorLineNr ctermbg=none ctermfg=yellow
