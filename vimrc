@@ -174,9 +174,6 @@ command! W call WriteWithParentDirs()
 inoremap kj <esc>
 inoremap jk <esc>
 inoremap <esc> <nop>
-vnoremap kj <esc>
-vnoremap jk <esc>
-vnoremap <esc> <nop>
 
 "" Abbreviations
 iabbrev gh https://github.com
