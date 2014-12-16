@@ -40,7 +40,13 @@ source ~/.vim/config/text_expansion.vim
 
 set noswapfile
 
+" Better searching
+set ignorecase
+set smartcase
+set gdefault " By default, replace all instances on a line in search/replace
+
 runtime macros/matchit.vim
+set showmatch
 
 let mapleader=" "
 
@@ -92,10 +98,6 @@ nnoremap <Leader>k :bp<CR>
 
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 nmap <Leader>e :edit %%
-
-" Better searching
-set ignorecase
-set smartcase
 
 " Open split windows
 set splitbelow
