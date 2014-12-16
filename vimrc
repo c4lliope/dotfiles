@@ -185,3 +185,33 @@ iabbrev -- –
 
 " Ruby abbreviationss
 iabbrev init initialize
+
+" quickly toggle the quickfix window
+nnoremap <leader>c :call ToggleList('Quickfix List', 'c')<cr>
+
+function! GetBufferList()
+  redir =>buflist
+  silent! ls
+  redir END
+  return split(buflist)
+endfunction
+
+function! ToggleList(bufname, prefix)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(buflist, 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:prefix.'close')
+      return
+    endif
+  endfor
+  if a:prefix == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo 'Location List is Empty.'
+      return
+  endif
+  let winnr = winnr()
+  exec('botright ' . a:prefix . 'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
