@@ -100,8 +100,12 @@ function openfile()
 
 alias of="openfile"
 
-function gitbot()
-  hub clone thoughtbot/$1
+function gitbot() {
+  hub clone thoughtbot/$1 ~/dev/tbot/$1
+  cd ~/dev/tbot/$1
+  retag
+  ./bin/setup
+}
 
 # Fuzzy searching for vim editing
 alias vis="vim \`tree -fiF | selecta\`"
