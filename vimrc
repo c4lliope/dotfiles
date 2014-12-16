@@ -1,38 +1,34 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" Plugins, managed with vim-plug (https://github.com/junegunn/vim-plug)
+" Run `:PlugInstall` to install or update
+call plug#begin('~/.vim/plugged')
 
-" set the runtimeath to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+Plug 'tpope/vim-sensible'
+Plug 'plasticboy/vim-markdown'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-endwise'
+Plug 'thoughtbot/vim-rspec'
+Plug 'scrooloose/syntastic'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'itchyny/lightline.vim'
+Plug 'rking/ag.vim'
+Plug 'skwp/greplace.vim'
 
-" let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Plug 'kien/ctrlp.vim'
 
-" Plugins, managed with vundle
-" Run `:BundleInstall` to install or update
-Bundle 'tpope/vim-sensible'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-endwise'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'scrooloose/syntastic'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'itchyny/lightline.vim'
-Bundle 'rking/ag.vim'
-Bundle 'skwp/greplace.vim'
-
-Bundle 'kien/ctrlp.vim'
-
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
 
 " Colorschemes
-Bundle 'chriskempson/base16-vim'
-Bundle 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+
+set nocompatible
 
 source ~/.vim/config/ctrlp.vim
 source ~/.vim/config/refactorings.vim
