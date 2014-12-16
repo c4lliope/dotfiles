@@ -4,7 +4,6 @@ group :development, :test do
   gem "rake", "~> 10.4.2"
   gem "rspec", "~> 3.1.0"
   gem "fuubar", "~> 2.0.0"
-  gem "warning_filter", "~> 0.0.4"
 end
 ' > Gemfile
 
@@ -18,8 +17,6 @@ echo '
 
 mkdir spec
 echo '
-require "warning_filter"
-
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
