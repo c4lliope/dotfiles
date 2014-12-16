@@ -36,6 +36,7 @@ alias gittyup='git push'
 alias gw='g c -a -m "wip"'
 alias gca='g commit --amend'
 alias y='g c' ## For catching an extra `y` after running `gap`
+alias gup='g fetch && g pull && ./bin/setup'
 
 alias gource='gource --max-files 0 -s .3 -i 0'
 
