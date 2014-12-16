@@ -31,6 +31,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 
 call plug#end()
+nnoremap <leader>P :PlugInstall<cr>
 
 set nocompatible
 
