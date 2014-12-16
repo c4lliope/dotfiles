@@ -2,27 +2,33 @@
 " Run `:PlugInstall` to install or update
 call plug#begin('~/.vim/plugged')
 
+" Core Functionality
+Plug 'rking/ag.vim'
+Plug 'skwp/greplace.vim'
 Plug 'tpope/vim-sensible'
-Plug 'plasticboy/vim-markdown'
-Plug 'mustache/vim-mustache-handlebars'
+
+" Language Support
 Plug 'kchmck/vim-coffee-script'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-endwise'
+
+" Development Environment
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-endwise'
 Plug 'thoughtbot/vim-rspec'
-Plug 'scrooloose/syntastic'
-Plug 'jeetsukumaran/vim-buffergator'
+
+" Aesthetics
+Plug 'Lokaltog/vim-distinguished'
 Plug 'itchyny/lightline.vim'
-Plug 'rking/ag.vim'
-Plug 'skwp/greplace.vim'
+Plug 'blueyed/vim-diminactive'
 
 Plug 'kien/ctrlp.vim'
 
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
-
-Plug 'Lokaltog/vim-distinguished'
 
 call plug#end()
 
