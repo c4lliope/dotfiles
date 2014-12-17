@@ -15,6 +15,7 @@
   c = commit
   wip = commit -m 'WIP'
   co = checkout
+  f = fetch
   j = pull
   k = push
   rb = rebase
