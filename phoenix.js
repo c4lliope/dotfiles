@@ -1,96 +1,64 @@
-var mNone = [];
-  mCmd = ['cmd'],
-  mShift = ['shift'],
-  nudgePixels = 10,
-  padding = 0,
-  previousSizes = {};
+var keyBindings = [];
+var active = false;
 
-// Remembers hotkey bindings.
-var keys = [];
-function bind(key, mods, callback) {
-  keys.push(api.bind(key, mods, callback));
+bindPhoenixMode('f', function() { toGrid(0.0, 0.0, 1.0, 1.0); });
+bindPhoenixMode('h', function() { toGrid(0.0, 0.0, 0.5, 1.0); });
+bindPhoenixMode('l', function() { toGrid(0.5, 0.0, 0.5, 1.0); });
+bindPhoenixMode('j', function() { toGrid(0.0, 0.5, 1.0, 0.5); });
+bindPhoenixMode('k', function() { toGrid(0.0, 0.0, 1.0, 0.5); });
+bindPhoenixMode('s', moveToNextScreen);
+
+bindPhoenixMode('escape', disableKeyBindings);
+bindPhoenixMode('return', disableKeyBindings);
+
+// Initially disable all key bindings
+disableKeyBindings();
+
+function bindPhoenixMode(key, callback) {
+  var noModifierKeys = [];
+  keyBindings.push(api.bind(key, noModifierKeys, callback));
 }
 
 // Modal activator
-// This hotkey enables/disables all other hotkeys.
-var active = false;
+// This hotkey enables/disables all other key bindings
 api.bind('space', ['alt'], function() {
-  if (!active) {
-    enableKeys();
-  } else {
-    disableKeys();
-  }
+  if(active) disableKeyBindings();
+  else enableKeyBindings();
 });
 
-// These keys end Phoenix mode.
-bind('escape', [], disableKeys);
-bind('return', [], disableKeys);
-
-// Disables all remembered keys.
-function disableKeys() {
+function disableKeyBindings() {
   active = false;
-  _(keys).each(function(key) {
-    key.disable();
-  });
+  _(keyBindings).each(function(binding) { binding.disable(); });
 
-  api.setTint([0,1],[0,1],[0,1]);
+  api.alert("Done");
 }
 
-var overlay = 0.4;
-
-// Enables all remembered keys.
-function enableKeys() {
+function enableKeyBindings() {
   active = true;
-  _(keys).each(function(key) {
-    key.enable();
-  });
+  _(keyBindings).each(function(key) { key.enable(); });
 
-  api.setTint([overlay,1],[overlay,1],[overlay,1]);
-}
-
-// #### Window#toGrid()
-//
-// This method can be used to push a window to a certain position and size on
-// the screen by using four floats instead of pixel sizes.  Examples:
-//
-//     // Window position: top-left; width: 25%, height: 50%
-//     someWindow.toGrid( 0, 0, 0.25, 0.5 );
-//
-// The window will be automatically focused.  Returns the window instance.
-function windowToGrid(window, x, y, width, height) {
-  var screen = window.screen().frameWithoutDockOrMenu();
-
-  window.setFrame({
-  x: Math.round( x * screen.width ) + padding + screen.x,
-  y: Math.round( y * screen.height ) + padding + screen.y,
-  width: Math.round( width * screen.width ) - ( 2 * padding ),
-  height: Math.round( height * screen.height ) - ( 2 * padding )
-  });
-
-  window.focusWindow();
-  disableKeys();
-
-  return window;
+  api.alert("Phoenix is listening");
 }
 
 function toGrid(x, y, width, height) {
   windowToGrid(Window.focusedWindow(), x, y, width, height);
 }
 
-Window.prototype.toGrid = function(x, y, width, height) {
-  windowToGrid(this, x, y, width, height);
-};
+function windowToGrid(window, x, y, width, height) {
+  var screen = window.screen().frameWithoutDockOrMenu();
 
-// Convenience method, doing exactly what it says.  Returns the window
-// instance.
-Window.prototype.toFullScreen = function() {
-  return this.toGrid( 0, 0, 1, 1 );
-};
+  window.setFrame({
+    x: Math.round( x * screen.width ) + screen.x,
+    y: Math.round( y * screen.height ) +screen.y,
+    width: Math.round( width * screen.width ),
+    height: Math.round( height * screen.height ),
+  });
 
-function moveToPreviousScreen() {
-  var window = Window.focusedWindow();
-  moveToScreen(window, window.screen().previousScreen());
-};
+  window.focusWindow();
+  disableKeyBindings();
+
+  return window;
+}
 
 function moveToNextScreen() {
   var window = Window.focusedWindow();
@@ -116,19 +84,4 @@ function moveToScreen(window, screen) {
     width: frame.width,
     height: frame.height
   });
-
-  disableKeys();
 };
-
-bind('f', mNone, function() { Window.focusedWindow().toFullScreen(); });
-bind('h', mNone, function() { toGrid(0, 0, 0.5, 1); });
-bind('l', mNone, function() { toGrid(0.5, 0, 0.5, 1); });
-bind('j', mNone, function() { toGrid(0, 0.5, 1, 0.5); });
-bind('k', mNone, function() { toGrid(0, 0, 1, 0.5); });
-
-bind('h', mShift, moveToPreviousScreen);
-bind('l', mShift, moveToNextScreen);
-bind('s', mNone, moveToNextScreen);
-
-// Initially disable all hotkeys
-disableKeys();
