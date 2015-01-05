@@ -1,3 +1,5 @@
+. ~/.functions/*
+
 # shortcuts -- every keystroke counts!
 alias l='ls'
 alias ll='ls -lF'
@@ -92,21 +94,7 @@ alias bell="echo -n $'\a'"
 alias remake="make clean; cls; make"
 alias mvi="mvim"
 
-# Useful functions
-function mkcd()
-  mkdir $1 && cd $1
-
-function openfile()
-  open $1 && exit
-
 alias of="openfile"
-
-function gitbot() {
-  hub clone thoughtbot/$1 ~/dev/tbot/$1
-  cd ~/dev/tbot/$1
-  retag
-  ./bin/setup
-}
 
 # Make things colorful!
 alias grep='grep --color=auto'

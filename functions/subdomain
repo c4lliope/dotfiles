@@ -1,0 +1,30 @@
+# Create a new subdomain off of "graysonwright.com"
+# for the current directory's app
+#
+# Dependencies:
+# `brew install heroku`
+# `npm install dnsimple-cli`
+function subdomain() {
+  app=$1
+  domain="graysonwright.com"
+  heroku_app="graysonwright-$app"
+  heroku_url="$heroku_app.herokuapp.com"
+  subdomain_url="$app.$domain"
+
+  heroku login
+
+  # Create a new heroku app
+  heroku apps:create $heroku_app
+
+  # Set up DNSimple to point to the new app
+  dnsimple domain record add $app CNAME $heroku_url $domain
+  heroku domains:add $subdomain_url --app $heroku_app
+
+  # Push the app to heroku
+  git push heroku master
+
+  # Run a setup script if there is one
+  if [ -f bin/setup ]; then heroku run bin/setup; fi
+
+  open http://$subdomain_url
+}

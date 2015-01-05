@@ -1,0 +1,12 @@
+# clone and `cd` into a git repo, in one step
+
+function clone() {
+  repo_name=$1
+  destination=$2
+  if [ -z "$destination" ]; then
+    result=${repo_name[(ws:/:)-1]}
+    destination=$result
+  fi
+  hub clone $repo_name $destination
+  cd $destination
+}
