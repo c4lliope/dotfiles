@@ -1,3 +1,5 @@
+let mapleader=" "
+
 " Plugins, managed with vim-plug (https://github.com/junegunn/vim-plug)
 " Run `:PlugInstall` to install or update
 call plug#begin('~/.vim/plugged')
@@ -34,51 +36,11 @@ call plug#end()
 nnoremap <leader>P :PlugInstall<cr>
 
 set nocompatible
-
-source ~/.vim/config/ctrlp.vim
-source ~/.vim/config/refactorings.vim
-source ~/.vim/config/text_expansion.vim
-
 set noswapfile
-
-" Better searching
-set ignorecase
-set smartcase
-set gdefault " By default, replace all instances on a line in search/replace
-
-runtime macros/matchit.vim
-set showmatch
-
-let mapleader=" "
+set nowrap
 
 syntax on
 filetype plugin indent on
-
-colorscheme distinguished
-set background=dark
-highlight LineNr ctermbg=none
-highlight CursorLineNr ctermbg=none ctermfg=yellow
-
-" Fast editing of .vimrc file
-nnoremap <Leader>ve :e $MYVIMRC<CR>
-nnoremap <Leader>vv :vsp $MYVIMRC<CR>
-autocmd! bufwritepost .vimrc source %
-
-" Open help in a vertical split
-nnoremap <leader>h :vert help 
-
-" Check spelling when writing plain text
-autocmd BufNewFile,BufRead *.md setlocal spell
-autocmd BufNewFile,BufRead *.md setlocal textwidth=80
-autocmd BufNewFile,BufRead *.mkd setlocal spell
-autocmd BufNewFile,BufRead *.mkd setlocal textwidth=80
-autocmd BufNewFile,BufRead *.txt setlocal spell
-autocmd BufNewFile,BufRead *.txt setlocal textwidth=80
-autocmd BufNewFile,BufRead *.yml setlocal spell
-set complete+=kspell
-
-" Fast editing of ~/tools.md file
-nnoremap <Leader>t :e ~/tools.md<CR>
 
 " Fast movement within a file
 set relativenumber
@@ -89,34 +51,48 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-" Quickly open/save/close buffers
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>x :x<CR>
-nnoremap <Leader>d :bd<CR>
-nnoremap <Leader>j :bn<CR>
-nnoremap <Leader>k :bp<CR>
+" Colors
+colorscheme distinguished
+set background=dark
+highlight LineNr ctermbg=none
+highlight CursorLineNr ctermbg=none ctermfg=yellow
 
-cnoremap %% <C-R>=expand('%:h').'/'<CR>
-nmap <Leader>e :edit %%
+" Additional configurations and mappings
+source ~/.vim/config/search.vim
+source ~/.vim/config/ctrlp.vim
+source ~/.vim/config/refactorings.vim
+source ~/.vim/config/buffers.vim
+source ~/.vim/config/splits.vim
+source ~/.vim/config/abbreviations.vim
+source ~/.vim/config/quickfix.vim
 
-" Open split windows
-set splitbelow
-set splitright
-noremap <C-Down> :sp<CR>
-noremap <C-Up> :sp<CR><C-W><C-K>
-noremap <C-Right> :vsp<CR>
-noremap <C-Left> :vsp<CR><C-W><C-H>
+autocmd WinEnter * set winwidth=85
+set winwidth=85
+set winminwidth=20
 
-" Navigate split windows
-noremap <C-J> <C-W><C-J>
-noremap <C-K> <C-W><C-K>
-noremap <C-L> <C-W><C-L>
-noremap <C-H> <C-W><C-H>
+runtime macros/matchit.vim
+set showmatch
 
-" Allow buffers to be backgrounded
-" even if they have unsaved changes
-set hidden
+" Fast editing of .vimrc file
+nnoremap <leader>ve :e $MYVIMRC<CR>
+nnoremap <leader>vv :vsp $MYVIMRC<CR>
+autocmd! bufwritepost .vimrc source %
+
+" Open help in a vertical split
+nnoremap <leader>h :vert help 
+
+" Check spelling when writing plain text
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd Filetype text setlocal spell
+autocmd FileType yaml setlocal spell
+autocmd FileType markdown setlocal spell
+autocmd FileType help setlocal nospell
+autocmd Filetype text setlocal textwidth=80
+autocmd FileType markdown setlocal textwidth=80
+set complete+=kspell
+
+" Fast editing of ~/tools.md file
+nnoremap <Leader>t :e ~/tools.md<CR>
 
 " RSpec.vim mappings
 let g:rspec_command = "w \| !clear && time rspec -- {spec}"
@@ -131,8 +107,6 @@ nnoremap <Leader>m :w \| :!g++ --std=c++11 % && ./a.out<CR>
 
 " Open files
 nnoremap <Leader>o :!open "%"<CR>
-
-nnoremap <Leader><Leader> <C-^>
 
 " use capital U for 'redo' (ctrl-r)
 nnoremap U <C-r>
@@ -172,41 +146,3 @@ command! W call WriteWithParentDirs()
 inoremap kj <esc>
 inoremap jk <esc>
 inoremap <esc> <nop>
-
-"" Abbreviations
-iabbrev gh https://github.com
-iabbrev gw graysonwright
-iabbrev -- –
-
-" Ruby abbreviationss
-iabbrev init initialize
-
-" quickly toggle the quickfix window
-nnoremap <leader>c :call ToggleList('Quickfix List', 'c')<cr>
-
-function! GetBufferList()
-  redir =>buflist
-  silent! ls
-  redir END
-  return split(buflist)
-endfunction
-
-function! ToggleList(bufname, prefix)
-  let buflist = GetBufferList()
-  for bufnum in map(filter(buflist, 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-    if bufwinnr(bufnum) != -1
-      exec(a:prefix.'close')
-      return
-    endif
-  endfor
-  if a:prefix == 'l' && len(getloclist(0)) == 0
-      echohl ErrorMsg
-      echo 'Location List is Empty.'
-      return
-  endif
-  let winnr = winnr()
-  exec('botright ' . a:prefix . 'open')
-  if winnr() != winnr
-    wincmd p
-  endif
-endfunction
