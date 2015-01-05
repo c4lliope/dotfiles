@@ -31,11 +31,6 @@ brew cask install vlc
 echo "Install Apptrap to clean things up"
 brew cask install apptrap
 
-echo "upgrade from Qt 4 to Qt 5, for better JS support in capybara-webkit"
-brew remove qt4
-brew install qt5
-brew link --force qt5
-
 # echo "Installing Marked, a markdown previewer"
 # brew cask install marked
 
