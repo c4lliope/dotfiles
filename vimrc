@@ -67,9 +67,6 @@ autocmd! bufwritepost .vimrc source %
 " Open help in a vertical split
 nnoremap <leader>h :vert help 
 
-" Automatic reloading of Phoenix configuration
-autocmd! bufwritepost .phoenix.js !killall "Phoenix"; open -a Phoenix
-
 " Check spelling when writing plain text
 autocmd BufNewFile,BufRead *.md setlocal spell
 autocmd BufNewFile,BufRead *.md setlocal textwidth=80
