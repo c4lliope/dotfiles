@@ -135,13 +135,18 @@ nnoremap <Leader>gw :Gcommit -m "WIP"<CR>
 nnoremap <Leader>ga :Git add .<CR>
 nnoremap <Leader>gr :Git rebase -i master<CR>
 
+" Easily change all single quotes to double quotes in source lines
+nnoremap <leader>' :%s/\v(#.*)@<!'/"/<cr>
+
 " Create parent directories when they don't exist for a new file
 function! WriteWithParentDirs()
   execute ':silent !mkdir -p %:h'
   write
+  redraw!
 endfunction
 command! W call WriteWithParentDirs()
 
 inoremap kj <esc>
 inoremap jk <esc>
-inoremap <esc> <nop>
+
+onoremap ia i)
