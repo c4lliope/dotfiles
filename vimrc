@@ -12,7 +12,6 @@ Plug 'tpope/vim-sensible'
 " Language Support
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-endwise'
 
