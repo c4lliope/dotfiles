@@ -15,8 +15,10 @@
   c = commit
   wip = commit -m 'WIP'
   co = checkout
+  ma = checkout master
   f = fetch
   j = pull
+  J = pull -X theirs
   k = push
   rb = rebase
   r = remote

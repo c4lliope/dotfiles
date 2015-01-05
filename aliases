@@ -37,6 +37,7 @@ alias gpa='gap' # For typos
 alias gittyup='git push'
 alias gw='g c -a -m "wip"'
 alias gca='g commit --amend'
+alias gh='hub browse'
 
 alias gource='gource --max-files 0 -s .3 -i 0'
 
