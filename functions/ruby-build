@@ -1,0 +1,2 @@
+function ruby-build()
+  ruby-install --install-dir "$HOME/.rbenv/versions/$1" ruby "$1"

@@ -1,0 +1,6 @@
+function gitbot() {
+  hub clone thoughtbot/$1 ~/dev/tbot/$1
+  cd ~/dev/tbot/$1
+  retag
+  ./bin/setup
+}
