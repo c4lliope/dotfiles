@@ -1,4 +1,5 @@
-. ~/.functions/*
+for FUNCTION in ~/.functions/*
+  . $FUNCTION
 
 # shortcuts -- every keystroke counts!
 alias l='ls'
