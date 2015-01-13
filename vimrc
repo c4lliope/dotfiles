@@ -8,12 +8,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'rking/ag.vim'
 Plug 'skwp/greplace.vim'
 Plug 'tpope/vim-sensible'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-eunuch'
 
 " Language Support
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-endwise'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
 
 " Development Environment
 Plug 'tpope/vim-bundler'
@@ -26,10 +30,6 @@ Plug 'Lokaltog/vim-distinguished'
 Plug 'itchyny/lightline.vim'
 Plug 'blueyed/vim-diminactive'
 
-Plug 'kien/ctrlp.vim'
-
-Plug 'kana/vim-textobj-user'
-Plug 'nelstrom/vim-textobj-rubyblock'
 
 call plug#end()
 nnoremap <leader>P :PlugInstall<cr>
