@@ -1,2 +1,2 @@
 function bot()
-  cd ~/dev/tbot/$1*
+  cd ~/dev/tbot/$1*([1])
