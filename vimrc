@@ -111,10 +111,8 @@ nnoremap <Leader>o :!open "%"<CR>
 nnoremap U <C-r>
 
 " Mark long lines
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd BufNewFile,BufRead *.log highlight OverLength ctermbg=none ctermfg=none guibg=none
-nnoremap <Leader>l :highlight OverLength ctermbg=none ctermfg=none guibg=none<CR>
-match OverLength /\%81v.\+/
+set colorcolumn=81
+autocmd FileType gitcommit :set colorcolumn=51
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
