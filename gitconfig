@@ -29,6 +29,7 @@
   lg2 = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(green)%aD%C(reset) %C(cyan)(%ar)%C(reset)%C(blue)%d%C(reset)%n''          %C(white)%s%C(reset) %C(yellow)— %an%C(reset)' --abbrev-commit
   lg = !"git lg1"
   st = stash
+  delete-branch = "!f() { git branch -d $1; git push origin :$1; }; f"
   sst = stash save --keep-index
   stage = push staging master
 
