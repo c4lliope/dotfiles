@@ -92,6 +92,7 @@ export EDITOR='vim'
 
 # Key bindings
 bindkey -s ^f '`tree -Fif | selecta`^j'
+bindkey -s ^p 'vim -c "CtrlP"^j'
 bindkey -s ^b '`git b -a | sed "s/remotes\\/origin\\///" | selecta`^j'
 
 # Alias definitions.
