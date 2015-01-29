@@ -5,6 +5,8 @@
     echo \"Branch name from args: $BRANCH_NAME\"
 
     git fetch &&\
+    echo 'git checkout $BRANCH_NAME' &&\
+    git checkout $BRANCH_NAME &&\
     echo 'git rebase -i origin/master' &&\
     git rebase -i origin/master &&\
     echo 'git push -f' &&\
@@ -13,8 +15,8 @@
     git checkout master &&\
     echo 'git pull' &&\
     git pull &&\
-    echo 'git merge $BRANCH_NAME' &&\
-    git merge $BRANCH_NAME &&\
+    echo 'git merge --ff-only $BRANCH_NAME' &&\
+    git merge --ff-only $BRANCH_NAME &&\
     echo 'git push' &&\
     git push &&\
     echo 'git branch -d $BRANCH_NAME ' &&\
