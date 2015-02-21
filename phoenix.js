@@ -63,6 +63,7 @@ function windowToGrid(window, x, y, width, height) {
 function moveToNextScreen() {
   var window = Window.focusedWindow();
   moveToScreen(window, window.screen().nextScreen());
+  toGrid(0, 0, 1, 1);
 };
 
 function moveToScreen(window, screen) {
