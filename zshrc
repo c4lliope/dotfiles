@@ -46,6 +46,7 @@ export EDITOR='vim'
 # export ARCHFLAGS="-arch x86_64"
 
 # Key bindings
+bindkey -e
 bindkey -s ^f '`tree -Fif | selecta`^j'
 bindkey -s ^p 'vim -c "CtrlP"^j'
 bindkey -s ^b '`git b -a | sed "s/remotes\\/origin\\///" | selecta`^j'
