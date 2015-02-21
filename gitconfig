@@ -5,7 +5,7 @@
   ui = true
 [alias]
   s = status --short
-  d = diff
+  d = diff -w
   dc = diff --cached
   b = branch
   a = add
