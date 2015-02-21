@@ -28,12 +28,9 @@ brew cask install vlc
 echo "Install Apptrap to clean things up"
 brew cask install apptrap
 
-# echo "Installing Marked, a markdown previewer"
-# brew cask install marked
-
-echo "Installing Slate for fast window management"
-brew cask install slate
-open -a Slate
+echo "Installing Phoenix for fast window management"
+brew cask install phoenix
+open -a Phoenix
 
 echo "Installing neovim for better vimming"
 brew tap neovim/homebrew-neovim
