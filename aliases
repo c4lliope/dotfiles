@@ -82,8 +82,8 @@ alias tca="top-commands-all"
 alias be='bundle exec'
 alias ra='rake'
 alias r='rails'
-alias db='be rake db:migrate'
-alias deploy='be cap production deploy'
+alias db='be rake db:migrate && be rake db:rollback && be rake db:migrate'
+alias fs='foreman start'
 
 # Keep track of device locations
 alias devices='dnsimple record:list graysonwright.com'
