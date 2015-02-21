@@ -22,7 +22,8 @@ alias v='vim'
 alias hi="history | more"
 alias s="spring"
 alias jformat="python -mjson.tool"
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 
 alias serve="python -m SimpleHTTPServer"
 
@@ -70,7 +71,7 @@ alias .z='. ~/.zshrc'
 alias ..a='vi ~/.aliases; .a'
 alias ..z='vi ~/.zshrc; .z'
 alias ..g='vi ~/.gitconfig'
-alias ..v='vi ~/.vimrc'
+alias ..v='vi ~/.nvimrc'
 alias ..t='vi ~/tools.md'
 alias ..p='vi ~/.phoenix.js'
 

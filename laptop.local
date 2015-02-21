@@ -35,6 +35,10 @@ echo "Installing Slate for fast window management"
 brew cask install slate
 open -a Slate
 
+echo "Installing neovim for better vimming"
+brew tap neovim/homebrew-neovim
+brew install --HEAD neovim
+
 echo "Installing Seil, which lets you remap caps lock to escape"
 brew cask install seil
 

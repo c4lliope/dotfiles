@@ -57,13 +57,13 @@ highlight LineNr ctermbg=none
 highlight CursorLineNr ctermbg=none ctermfg=yellow
 
 " Additional configurations and mappings
-source ~/.vim/config/search.vim
-source ~/.vim/config/ctrlp.vim
-source ~/.vim/config/refactorings.vim
-source ~/.vim/config/buffers.vim
-source ~/.vim/config/splits.vim
-source ~/.vim/config/abbreviations.vim
-source ~/.vim/config/quickfix.vim
+source ~/.nvim/config/search.vim
+source ~/.nvim/config/ctrlp.vim
+source ~/.nvim/config/refactorings.vim
+source ~/.nvim/config/buffers.vim
+source ~/.nvim/config/splits.vim
+source ~/.nvim/config/abbreviations.vim
+source ~/.nvim/config/quickfix.vim
 
 autocmd WinEnter * set winwidth=85
 set winwidth=85
@@ -72,10 +72,10 @@ set winminwidth=20
 runtime macros/matchit.vim
 set showmatch
 
-" Fast editing of .vimrc file
+" Fast editing of .nvimrc file
 nnoremap <leader>ve :e $MYVIMRC<CR>
 nnoremap <leader>vv :vsp $MYVIMRC<CR>
-autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost .nvimrc source %
 
 " Open help in a vertical split
 nnoremap <leader>h :vert help 
