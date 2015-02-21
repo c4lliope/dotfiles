@@ -1,0 +1,26 @@
+#!/usr/bin/env gitsh
+
+:set BRANCH_NAME `git rev-parse --abbrev-ref HEAD` \
+echo \"Branch name from current branch: $BRANCH_NAME\"
+BRANCH_NAME=$1
+echo \"Branch name from args: $BRANCH_NAME\"
+
+git fetch &&\
+echo 'git checkout $BRANCH_NAME' &&\
+git checkout $BRANCH_NAME &&\
+echo 'git rebase -i origin/master' &&\
+git rebase -i origin/master &&\
+echo 'git push -f' &&\
+git push -f &&\
+echo 'git checkout master' &&\
+git checkout master &&\
+echo 'git pull' &&\
+git pull &&\
+echo 'git merge --ff-only $BRANCH_NAME' &&\
+git merge --ff-only $BRANCH_NAME &&\
+echo 'git push' &&\
+git push &&\
+echo 'git branch -d $BRANCH_NAME ' &&\
+git branch -d $BRANCH_NAME && \
+echo 'git push -f origin :$BRANCH_NAME' &&\
+git push -f origin :$BRANCH_NAME; \
