@@ -29,6 +29,9 @@ echo "Installing a tool to display battery usage in the terminal"
 brew tap Goles/battery
 brew install battery
 
+echo "Hooking up OS X's clipboard to tmux"
+brew install reattach-to-user-namespace
+
 echo "Install Apptrap to clean things up"
 brew cask install apptrap
 
