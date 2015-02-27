@@ -25,6 +25,10 @@ brew cask install spotify
 echo "Installing VLC, a good media player"
 brew cask install vlc
 
+echo "Installing a tool to display battery usage in the terminal"
+brew tap Goles/battery
+brew install battery
+
 echo "Install Apptrap to clean things up"
 brew cask install apptrap
 

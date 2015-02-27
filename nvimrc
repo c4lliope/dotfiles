@@ -18,6 +18,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-endwise'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'zaiste/tmux.vim'
 
 " Development Environment
 Plug 'tpope/vim-bundler'
@@ -29,7 +30,6 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'Lokaltog/vim-distinguished'
 Plug 'itchyny/lightline.vim'
 Plug 'blueyed/vim-diminactive'
-
 
 call plug#end()
 nnoremap <leader>P :PlugInstall<cr>
