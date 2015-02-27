@@ -10,6 +10,7 @@ Plug 'skwp/greplace.vim'
 Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-eunuch'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Language Support
 Plug 'kchmck/vim-coffee-script'
