@@ -65,10 +65,7 @@ source ~/.nvim/config/buffers.vim
 source ~/.nvim/config/splits.vim
 source ~/.nvim/config/abbreviations.vim
 source ~/.nvim/config/quickfix.vim
-
-autocmd WinEnter * set winwidth=85
-set winwidth=85
-set winminwidth=20
+source ~/.nvim/config/spacing.vim
 
 runtime macros/matchit.vim
 set showmatch
