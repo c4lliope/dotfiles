@@ -31,7 +31,7 @@
   lg = !"git lg1"
   st = stash
   delete-branch = "!f() { git branch -d $1; git push origin :$1; }; f"
-  inspect = "!f() { git diff $1^ $1; }; f"
+  inspect = "!f() { git diff $1^ `shift` \"$@\"; }; f"
   edit = "!f() { nvim `git status --short | sed 's/^.. //'`; }; f"
 
   sst = stash save --keep-index
