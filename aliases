@@ -18,7 +18,6 @@ alias ff='flogit && flayit'
 alias ss='spring stop'
 alias spec='rspec'
 alias b='bundle'
-alias v='vim'
 alias hi="history | more"
 alias s="spring"
 alias jformat="python -mjson.tool"
