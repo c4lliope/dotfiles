@@ -13,7 +13,7 @@ Plug 'tpope/vim-eunuch'
 
 " tmux integration
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'christoomey/vim-tmux-runner'
+Plug 'blakewilliams/vim-tbro'
 
 " Language Support
 Plug 'kchmck/vim-coffee-script'
@@ -92,11 +92,8 @@ autocmd Filetype text setlocal textwidth=80
 autocmd FileType markdown setlocal textwidth=80
 set complete+=kspell
 
-" Fast editing of ~/tools.md file
-nnoremap <Leader>t :e ~/tools.md<CR>
-
 " RSpec.vim mappings
-let g:rspec_command = "w \| call VtrSendCommand('time rspec -- {spec}')"
+let g:rspec_command = "w \| :Tbro time rspec -- {spec}"
 nnoremap <Leader>sf :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>ss :call RunNearestSpec()<CR>
 nnoremap <Leader>sl :call RunLastSpec()<CR>

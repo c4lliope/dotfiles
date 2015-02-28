@@ -1,3 +1,2 @@
-nnoremap <leader>tr :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<cr>
-nnoremap <leader>tp :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
-nnoremap <leader>tf :VtrFocusRunner<cr>
+vnoremap <silent> <leader>t :call tbro#run_selection()<cr>
+nnoremap <silent> <leader>t :call tbro#run_line()<cr>
