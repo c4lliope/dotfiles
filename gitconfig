@@ -19,6 +19,7 @@
   f = fetch
   j = pull
   J = pull -X theirs
+  pr = !"git rebase -i origin/master && git push -f && hub pull-request"
   k = push
   rb = rebase
   r = remote
