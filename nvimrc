@@ -10,7 +10,10 @@ Plug 'skwp/greplace.vim'
 Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-eunuch'
+
+" tmux integration
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
 
 " Language Support
 Plug 'kchmck/vim-coffee-script'
@@ -66,6 +69,7 @@ source ~/.nvim/config/splits.vim
 source ~/.nvim/config/abbreviations.vim
 source ~/.nvim/config/quickfix.vim
 source ~/.nvim/config/spacing.vim
+source ~/.nvim/config/tmux.vim
 
 runtime macros/matchit.vim
 set showmatch
@@ -92,7 +96,7 @@ set complete+=kspell
 nnoremap <Leader>t :e ~/tools.md<CR>
 
 " RSpec.vim mappings
-let g:rspec_command = "w \| !clear && time rspec -- {spec}"
+let g:rspec_command = "w \| call VtrSendCommand('time rspec -- {spec}')"
 nnoremap <Leader>sf :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>ss :call RunNearestSpec()<CR>
 nnoremap <Leader>sl :call RunLastSpec()<CR>
