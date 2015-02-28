@@ -39,10 +39,6 @@ echo "Installing Phoenix for fast window management"
 brew cask install phoenix
 open -a Phoenix
 
-echo "Installing neovim for better vimming"
-brew tap neovim/homebrew-neovim
-brew install --HEAD neovim
-
 echo "Installing Seil, which lets you remap caps lock to escape"
 brew cask install seil
 

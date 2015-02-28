@@ -61,23 +61,23 @@ highlight LineNr ctermbg=none
 highlight CursorLineNr ctermbg=none ctermfg=yellow
 
 " Additional configurations and mappings
-source ~/.nvim/config/search.vim
-source ~/.nvim/config/ctrlp.vim
-source ~/.nvim/config/refactorings.vim
-source ~/.nvim/config/buffers.vim
-source ~/.nvim/config/splits.vim
-source ~/.nvim/config/abbreviations.vim
-source ~/.nvim/config/quickfix.vim
-source ~/.nvim/config/spacing.vim
-source ~/.nvim/config/tmux.vim
+source ~/.vim/config/search.vim
+source ~/.vim/config/ctrlp.vim
+source ~/.vim/config/refactorings.vim
+source ~/.vim/config/buffers.vim
+source ~/.vim/config/splits.vim
+source ~/.vim/config/abbreviations.vim
+source ~/.vim/config/quickfix.vim
+source ~/.vim/config/spacing.vim
+source ~/.vim/config/tmux.vim
 
 runtime macros/matchit.vim
 set showmatch
 
-" Fast editing of .nvimrc file
+" Fast editing of .vimrc file
 nnoremap <leader>ve :e $MYVIMRC<CR>
 nnoremap <leader>vv :vsp $MYVIMRC<CR>
-autocmd! bufwritepost .nvimrc source %
+autocmd! bufwritepost .vimrc source %
 
 " Open help in a vertical split
 nnoremap <leader>h :vert help 

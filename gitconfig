@@ -32,7 +32,7 @@
   st = stash
   delete-branch = "!f() { git branch -d $1; git push origin :$1; }; f"
   inspect = "!f() { git diff $1^ `shift` \"$@\"; }; f"
-  edit = "!f() { nvim `git status --short | sed 's/^.. //'`; }; f"
+  edit = "!f() { vim `git status --short | sed 's/^.. //'`; }; f"
 
   sst = stash save --keep-index
   stage = push staging master
@@ -41,7 +41,7 @@
   trust = !"mkdir .git/safe"
 
 [core]
-  editor = /usr/local/bin/nvim
+  editor = /usr/bin/vim
   excludesfile = ~/.gitignore
 [push]
   default = current

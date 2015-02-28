@@ -22,8 +22,7 @@ alias v='vim'
 alias hi="history | more"
 alias s="spring"
 alias jformat="python -mjson.tool"
-alias vi="nvim"
-alias vim="nvim"
+alias vi="vim"
 
 alias serve="python -m SimpleHTTPServer"
 
@@ -73,7 +72,7 @@ alias .t='tmux source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloade
 alias ..a='vi ~/.aliases; .a'
 alias ..z='vi ~/.zshrc; .z'
 alias ..g='vi ~/.gitconfig'
-alias ..v='vi ~/.nvimrc'
+alias ..v='vi ~/.vimrc'
 alias ..t='vi ~/tools.md'
 alias ..p='vi ~/.phoenix.js'
 alias ..t='vi ~/.tmux.conf; .t'
