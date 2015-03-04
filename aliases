@@ -86,6 +86,7 @@ alias r='rails'
 alias db='be rake db:migrate && be rake db:rollback && be rake db:migrate'
 alias fs='foreman start'
 alias prodc='production run rails console'
+alias stagc='staging run rails console'
 
 # Keep track of device locations
 alias devices='dnsimple record:list graysonwright.com'
