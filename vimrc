@@ -70,6 +70,7 @@ source ~/.vim/config/abbreviations.vim
 source ~/.vim/config/quickfix.vim
 source ~/.vim/config/spacing.vim
 source ~/.vim/config/tmux.vim
+source ~/.vim/config/rspec.vim
 
 runtime macros/matchit.vim
 set showmatch
@@ -91,14 +92,6 @@ autocmd FileType help setlocal nospell
 autocmd Filetype text setlocal textwidth=80
 autocmd FileType markdown setlocal textwidth=80
 set complete+=kspell
-
-" RSpec.vim mappings
-let g:rspec_command = "w \| :Tbro time rspec -- {spec}"
-nnoremap <Leader>sf :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>ss :call RunNearestSpec()<CR>
-nnoremap <Leader>sl :call RunLastSpec()<CR>
-nnoremap <Leader>sa :call RunAllSpecs()<CR>
-nnoremap <Leader>sr :w<CR> \| :!bundle exec rake<CR>
 
 " Run C++ files
 nnoremap <Leader>m :w \| :!g++ --std=c++11 % && ./a.out<CR>
