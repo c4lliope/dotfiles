@@ -147,3 +147,4 @@ inoremap jk <esc>
 onoremap ia i)
 
 nnoremap <leader>r :redraw!<cr>
+nnoremap Q qqqqq
