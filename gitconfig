@@ -9,6 +9,7 @@
   dc = diff --cached
   b = branch
   a = add
+  ai = add --intent-to-add
   ap = add -p
   rh = reset HEAD
   m = merge
