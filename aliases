@@ -40,6 +40,9 @@ alias gittyup='git push'
 alias gw='g c -a -m "wip"'
 alias gca='g commit --amend'
 alias gh='hub browse'
+alias gstats='echo \
+              +$(g d origin/master | ag "^\+" | wc -l | sed -e "s/^[ \t]*//"),\
+              -$(g d origin/master | ag "^\-" | wc -l | sed -e "s/^[ \t]*//")'
 
 alias gource='gource --max-files 0 -s .3 -i 0'
 
