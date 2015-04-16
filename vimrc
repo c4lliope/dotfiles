@@ -123,10 +123,12 @@ nnoremap <Leader>N :lprev<CR>
 
 " fuGITive shortcuts
 nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gw :Gcommit -m "WIP"<CR>
 nnoremap <Leader>ga :Git add .<CR>
 nnoremap <Leader>gr :Git rebase -i master<CR>
+let g:gitgutter_diff_args = '-w'
 
 " Easily change all single quotes to double quotes in source lines
 nnoremap <leader>' :%s/\v(#.*)@<!'/"/<cr>
