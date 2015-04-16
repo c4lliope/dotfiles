@@ -68,3 +68,4 @@ function top-commands {
 function top-commands-all {
   history | sed -e 's/ *[0-9][0-9]* *//' | sort | uniq -c | sort -rn | head -10
 }
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
