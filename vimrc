@@ -11,6 +11,9 @@ Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-eunuch'
 
+" git integration
+Plug 'airblade/vim-gitgutter'
+
 " tmux integration
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'blakewilliams/vim-tbro'
