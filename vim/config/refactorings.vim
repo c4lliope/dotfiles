@@ -24,4 +24,11 @@ function! InlineVariable()
   :let @a = l:tmp_a
   :let @b = l:tmp_b
 endfunction
+
 nnoremap <leader>ri :call InlineVariable()<cr>
+
+" Extract a variable from visual mode (ruby)
+" After extracting (to a variable called "variable"),
+" the script leaves you in the middle of a substitution command
+" to rename the variable to whatever you want.
+vnoremap <leader>re cvariable<esc>O<esc>p==Ivariable = <esc>:.,+1s/variable/
