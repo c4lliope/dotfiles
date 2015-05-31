@@ -21,6 +21,7 @@
   j = pull
   J = pull -X theirs
   pr = !"git rebase -i origin/master && git push -f && hub pull-request"
+  hound = !"git commit -m 'Fix Hound comments' && git push"
   k = push
   rb = rebase
   r = remote
