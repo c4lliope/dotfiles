@@ -18,10 +18,9 @@ alias flogit='find . -name \*.rb | xargs flog'
 alias flayit='find . -name \*.rb | xargs flay'
 alias ff='flogit && flayit'
 alias ss='spring stop'
-alias spec='rspec'
+alias s='rspec'
 alias b='bundle'
 alias hi="history | more"
-alias s="spring"
 alias jformat="python -mjson.tool"
 alias vi="vim"
 
