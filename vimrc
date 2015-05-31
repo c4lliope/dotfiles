@@ -23,7 +23,6 @@ Plug 'blakewilliams/vim-tbro'
 " Language Support
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-endwise'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
