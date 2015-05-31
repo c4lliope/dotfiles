@@ -5,8 +5,8 @@
   ui = true
 [alias]
   s = status --short
-  d = diff -w
-  dc = diff --cached
+  d = diff -w --patience
+  dc = diff --cached --patience
   b = branch
   a = add
   ai = add --intent-to-add
@@ -32,7 +32,7 @@
   lg = !"git lg1"
   st = stash
   delete-branch = "!f() { git branch -d $1; git push origin :$1; }; f"
-  inspect = "!f() { git diff $1^ `shift` \"$@\"; }; f"
+  inspect = "!f() { git d $1^ `shift` \"$@\"; }; f"
   edit = "!f() { vim `git status --short | sed 's/^.. //'`; }; f"
 
   sst = stash save --keep-index
