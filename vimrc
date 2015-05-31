@@ -15,6 +15,7 @@ Plug 'reedes/vim-textobj-quote'
 
 " git integration
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " tmux integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -31,7 +32,6 @@ Plug 'zaiste/tmux.vim'
 " Development Environment
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-fugitive'
 Plug 'thoughtbot/vim-rspec'
 
 " Aesthetics
@@ -73,6 +73,7 @@ source ~/.vim/config/splits.vim
 source ~/.vim/config/abbreviations.vim
 source ~/.vim/config/quickfix.vim
 source ~/.vim/config/spacing.vim
+source ~/.vim/config/git.vim
 source ~/.vim/config/tmux.vim
 source ~/.vim/config/rspec.vim
 
@@ -121,15 +122,6 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Shortcuts for scanning through results list
 nnoremap <Leader>n :lnext<CR>
 nnoremap <Leader>N :lprev<CR>
-
-" fuGITive shortcuts
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gw :Gcommit -m "WIP"<CR>
-nnoremap <Leader>ga :Git add .<CR>
-nnoremap <Leader>gr :Git rebase -i master<CR>
-let g:gitgutter_diff_args = '-w'
 
 " Easily change all single quotes to double quotes in source lines
 nnoremap <leader>' :%s/\v(#.*)@<!'/"/<cr>
