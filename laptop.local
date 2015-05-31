@@ -26,9 +26,6 @@ brew install battery
 echo "Hooking up OS X's clipboard to tmux"
 brew install reattach-to-user-namespace
 
-echo "Installing Seil, which lets you remap caps lock to escape"
-brew cask install seil
-
 if [ -d "/Applications/Adobe Creative Cloud" ]; then
   echo "It looks like Adobe Creative Cloud is already installed, skipping installer"
 else
@@ -45,7 +42,6 @@ echo "You may want to remove ~/.laptop.local, and then run 'rcup' again \
 echo "Opening background apps. You may want to configure these to start at login."
 open -a Caffeine
 open -a Phoenix
-open -a Seil
 
 echo "Opening System preferences."
 echo "I suggest enabling tap-to-click, and maxing out the keyboard repeat rate"
