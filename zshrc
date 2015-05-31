@@ -51,6 +51,22 @@ bindkey -s ^f '`tree -Fif | selecta`^j'
 bindkey -s ^p 'vim -c "CtrlP"^j'
 bindkey -s ^b '`git b -a | sed "s/remotes\\/origin\\///" | selecta`^j'
 
+# Edit the current line in vim
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
+# [Backspace] - delete backward
+bindkey '^?' backward-delete-char
+if [[ "${terminfo[kdch1]}" != "" ]]; then
+  # [Delete] - delete forward
+  bindkey "${terminfo[kdch1]}" delete-char
+else
+  bindkey "^[[3~" delete-char
+  bindkey "^[3;5~" delete-char
+  bindkey "\e[3~" delete-char
+fi
+
 # Alias definitions.
 if [ -f ~/.aliases ]; then
     source ~/.aliases
