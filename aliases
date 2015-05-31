@@ -46,10 +46,8 @@ alias gstats='echo \
 alias gource='gource --max-files 0 -s .3 -i 0'
 
 ## Tmux Shortcuts
-alias t='tmux'
-alias 'tmls'='t list-sessions'
-alias 'tmn'='t new -s'
-alias 'tma'='t attach -t'
+alias t='tat'
+alias 'tls'='tmux list-sessions'
 
 # Rails environments
 alias Rt='RAILS_ENV=test'
