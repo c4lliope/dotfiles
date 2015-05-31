@@ -10,6 +10,8 @@ Plug 'skwp/greplace.vim'
 Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'reedes/vim-textobj-quote'
 
 " git integration
 Plug 'airblade/vim-gitgutter'
