@@ -9,21 +9,15 @@ echo "We'll use Homebrew Cask to install large binaries"
 brew tap caskroom/cask
 brew install brew-cask
 
-echo "Installing Caffeine to keep the computer awake"
-brew cask install caffeine
-open -a Caffeine
-
-echo "Installing iTerm2, a good Terminal program"
-brew cask install iterm2
-
-echo "Installing Google Chrome, a good web browser"
-brew cask install google-chrome
-
-echo "Installing Spotify, for tunes!"
-brew cask install spotify
-
-echo "Installing VLC, a good media player"
-brew cask install vlc
+brew cask install \
+  adobe-creative-cloud \
+  apptrap \
+  caffeine \
+  google-chrome \
+  iterm2 \
+  phoenix \
+  spotify \
+  vlc
 
 echo "Installing a tool to display battery usage in the terminal"
 brew tap Goles/battery
@@ -32,18 +26,9 @@ brew install battery
 echo "Hooking up OS X's clipboard to tmux"
 brew install reattach-to-user-namespace
 
-echo "Install Apptrap to clean things up"
-brew cask install apptrap
-
-echo "Installing Phoenix for fast window management"
-brew cask install phoenix
-open -a Phoenix
-
 echo "Installing Seil, which lets you remap caps lock to escape"
 brew cask install seil
 
-echo "Installing Adobe Creative Cloud, for getting awesome fonts from TypeKit"
-brew cask install adobe-creative-cloud
 if [ -d "/Applications/Adobe Creative Cloud" ]; then
   echo "It looks like Adobe Creative Cloud is already installed, skipping installer"
 else
@@ -57,8 +42,11 @@ rcup -v
 echo "You may want to remove ~/.laptop.local, and then run 'rcup' again \
   to keep updated with the dotfiles"
 
-echo "Opening Seil so you can configure caps lock -> escape mapping"
+echo "Opening background apps. You may want to configure these to start at login."
+open -a Caffeine
+open -a Phoenix
 open -a Seil
+
 echo "Opening System preferences."
 echo "I suggest enabling tap-to-click, and maxing out the keyboard repeat rate"
 open -a 'System Preferences'
