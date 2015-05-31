@@ -36,15 +36,15 @@ fi
 echo "Installing dotfiles from github using RCM"
 git clone git@github.com:graysonwright/dotfiles ~/.dotfiles
 rcup -v
-echo "You may want to remove ~/.laptop.local, and then run 'rcup' again \
+echo "TODO: You may want to remove ~/.laptop.local, and then run 'rcup' again \
   to keep updated with the dotfiles"
 
-echo "Opening background apps. You may want to configure these to start at login."
+echo "TODO: Opening background apps. You may want to configure these to start at login."
 open -a Caffeine
 open -a Phoenix
 
 echo "Opening System preferences."
-echo "I suggest enabling tap-to-click, and maxing out the keyboard repeat rate"
+echo "TODO: I suggest enabling tap-to-click, and maxing out the keyboard repeat rate"
 open -a 'System Preferences'
 
 echo
