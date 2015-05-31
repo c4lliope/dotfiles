@@ -105,3 +105,11 @@ alias of="openfile"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# tbot.io
+function tbot()
+  open https://tbot.io/$1
+alias tb="tbot"
+
+function trello()
+  tbot t/$(basename $PWD)
