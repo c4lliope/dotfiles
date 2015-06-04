@@ -76,6 +76,7 @@ source ~/.vim/config/spacing.vim
 source ~/.vim/config/git.vim
 source ~/.vim/config/tmux.vim
 source ~/.vim/config/rspec.vim
+source ~/.vim/config/whitespace.vim
 
 runtime macros/matchit.vim
 set showmatch
