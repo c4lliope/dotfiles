@@ -7,4 +7,6 @@ set gdefault " By default, replace all instances on a line in search/replace
 nnoremap <leader>/ :Ag! 
 nnoremap / /\v
 nnoremap ? :%s/\v
-"nnoremap <leader>/ :set hlsearch!<cr>
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>

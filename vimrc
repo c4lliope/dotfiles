@@ -118,8 +118,6 @@ set list listchars=tab:»·,trail:·
 " Quickly toggle paste mode
 nnoremap <Leader>p :set invpaste paste?<CR>
 
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Shortcuts for scanning through results list
 nnoremap <Leader>n :lnext<CR>
 nnoremap <Leader>N :lprev<CR>
