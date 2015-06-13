@@ -124,9 +124,8 @@ nnoremap <leader>' :%s/\v(#.*)@<!'/"/<cr>
 
 " Create parent directories when they don't exist for a new file
 function! WriteWithParentDirs()
-  execute ':silent !mkdir -p %:h'
-  write
-  redraw!
+  :Mkdir
+  :write
 endfunction
 command! W call WriteWithParentDirs()
 
