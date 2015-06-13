@@ -41,6 +41,7 @@ Plug 'blueyed/vim-diminactive'
 
 call plug#end()
 nnoremap <leader>P :PlugInstall<cr>
+nnoremap <leader>b :w<cr> \| :Tbro bundle install<cr>
 
 set nocompatible
 set noswapfile
