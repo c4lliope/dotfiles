@@ -110,6 +110,8 @@ alias egrep='egrep --color=auto'
 function tbot()
   open https://tbot.io/$1
 alias tb="tbot"
+function gbot()
+  open https://github.com/thoughtbot/$1
 
 function trello()
   tbot t/$(basename $PWD)
