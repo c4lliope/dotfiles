@@ -4,7 +4,7 @@ set smartcase
 set gdefault " By default, replace all instances on a line in search/replace
 
 " Searching improvements
-nnoremap <leader>/ :Ag! 
+nnoremap <leader>/ :Ag!<space>
 nnoremap / /\v
 nnoremap ? :%s/\v
 

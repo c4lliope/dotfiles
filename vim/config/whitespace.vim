@@ -10,4 +10,7 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-autocmd BufWritePre *.py,*.js,*.rb,Gemfile,*.haml,*.erb,*.slim :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre *.css,*.scss,*.vim,*.py,*.js,*.rb,Gemfile,*.haml,*.erb,*.slim :call <SID>StripTrailingWhitespaces()
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·

@@ -87,7 +87,7 @@ nnoremap <leader>vv :vsp $MYVIMRC<CR>
 autocmd! bufwritepost .vimrc source %
 
 " Open help in a vertical split
-nnoremap <leader>h :vert help 
+nnoremap <leader>h :vert help<space>
 
 " Check spelling when writing plain text
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -111,9 +111,6 @@ nnoremap U <C-r>
 " Mark long lines
 set colorcolumn=81
 autocmd FileType gitcommit :set colorcolumn=51
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·
 
 " Quickly toggle paste mode
 nnoremap <Leader>p :set invpaste paste?<CR>
