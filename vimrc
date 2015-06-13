@@ -5,13 +5,15 @@ let mapleader=" "
 call plug#begin('~/.vim/plugged')
 
 " Core Functionality
+Plug 'christoomey/vim-sort-motion'
+Plug 'kana/vim-textobj-indent'
+Plug 'kien/ctrlp.vim'
+Plug 'reedes/vim-textobj-quote'
 Plug 'rking/ag.vim'
 Plug 'skwp/greplace.vim'
-Plug 'tpope/vim-sensible'
-Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'reedes/vim-textobj-quote'
 
 " git integration
 Plug 'airblade/vim-gitgutter'
