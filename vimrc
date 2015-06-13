@@ -20,21 +20,21 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " tmux integration
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'blakewilliams/vim-tbro'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Language Support
+Plug 'kana/vim-textobj-user'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'tpope/vim-endwise'
-Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'tpope/vim-endwise'
 Plug 'zaiste/tmux.vim'
 
 " Development Environment
+Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
-Plug 'thoughtbot/vim-rspec'
 
 " Aesthetics
 Plug 'Lokaltog/vim-distinguished'
@@ -68,17 +68,17 @@ highlight LineNr ctermbg=none
 highlight CursorLineNr ctermbg=none ctermfg=yellow
 
 " Additional configurations and mappings
-source ~/.vim/config/search.vim
-source ~/.vim/config/ctrlp.vim
-source ~/.vim/config/refactorings.vim
-source ~/.vim/config/buffers.vim
-source ~/.vim/config/splits.vim
 source ~/.vim/config/abbreviations.vim
-source ~/.vim/config/quickfix.vim
-source ~/.vim/config/spacing.vim
+source ~/.vim/config/buffers.vim
+source ~/.vim/config/ctrlp.vim
 source ~/.vim/config/git.vim
-source ~/.vim/config/tmux.vim
+source ~/.vim/config/quickfix.vim
+source ~/.vim/config/refactorings.vim
 source ~/.vim/config/rspec.vim
+source ~/.vim/config/search.vim
+source ~/.vim/config/spacing.vim
+source ~/.vim/config/splits.vim
+source ~/.vim/config/tmux.vim
 source ~/.vim/config/whitespace.vim
 
 runtime macros/matchit.vim
