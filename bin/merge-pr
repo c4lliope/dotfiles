@@ -11,7 +11,7 @@ git checkout $BRANCH_NAME &&\
 echo 'git rebase -i origin/master' &&\
 git rebase -i origin/master &&\
 echo 'git push -f' &&\
-git push -f &&\
+git push --force-with-lease &&\
 echo 'git checkout master' &&\
 git checkout master &&\
 echo 'git pull' &&\
@@ -23,4 +23,4 @@ git push &&\
 echo 'git branch -d $BRANCH_NAME ' &&\
 git branch -d $BRANCH_NAME && \
 echo 'git push -f origin :$BRANCH_NAME' &&\
-git push -f origin :$BRANCH_NAME; \
+git push --force-with-lease origin :$BRANCH_NAME; \
