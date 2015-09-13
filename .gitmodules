@@ -1,0 +1,3 @@
+[submodule "submodules/shpotify"]
+	path = submodules/shpotify
+	url = git@github.com:hnarayanan/shpotify.git
