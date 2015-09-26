@@ -8,8 +8,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-sort-motion'
 Plug 'embear/vim-localvimrc'
 Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-user'
 Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-sensible'
 
@@ -22,6 +24,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Language Support
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-endwise'
 
 " Rails development
