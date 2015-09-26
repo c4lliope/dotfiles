@@ -38,16 +38,8 @@ source ~/.docker.zsh
 source ~/.history.zsh
 source ~/.prompt.zsh
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Key bindings
 bindkey -e
