@@ -27,8 +27,7 @@ alias vi="vim"
 alias serve="python -m SimpleHTTPServer"
 
 ## Git Shortcuts
-alias g='git'
-alias git='hub'
+alias g='hub'
 alias glg='g lg | h; echo'
 alias gls='clear; pwd; echo; ls; echo; git s'
 alias gl='gls && echo && glg'
