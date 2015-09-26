@@ -41,6 +41,8 @@ source ~/.prompt.zsh
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Key bindings
 bindkey -e
 bindkey -s ^f '`tree -Fif | selecta`^j'
