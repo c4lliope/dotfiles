@@ -32,6 +32,7 @@ export PATH="$PATH:/usr/local/opt/nvm/v0.10.31/bin"
 export PATH
 
 source ~/.colors.zsh
+source ~/.docker.zsh
 source ~/.history.zsh
 source ~/.prompt.zsh
 
