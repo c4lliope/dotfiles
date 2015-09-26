@@ -1,0 +1,13 @@
+function parity() {
+  echo "#!/usr/bin/env ruby
+
+require 'parity'
+
+if ARGV.empty?
+  puts Parity::Usage.new
+else
+  Parity::Environment.new('$1', ARGV).run
+end
+" > bin/$1
+chmod +x bin/$1
+}
