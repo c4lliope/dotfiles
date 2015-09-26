@@ -31,6 +31,7 @@ export PATH="$PATH:/usr/local/opt/nvm/v0.10.31/bin"
 
 export PATH
 
+source ~/.aliases
 source ~/.colors.zsh
 source ~/.docker.zsh
 source ~/.history.zsh
@@ -69,21 +70,4 @@ else
   bindkey "\e[3~" delete-char
 fi
 
-# Alias definitions.
-if [ -f ~/.aliases ]; then
-    source ~/.aliases
-fi
-
 export HOMEBREW_GITHUB_API_TOKEN=108e4060d8e0bee51d3b0fd66813af87f94c1f24
-
-# Keep track of more commands
-export HISTFILESIZE=1000000
-
-function top-commands {
-  history | awk '($2 ~ /^[[:alnum:]]+$/) { ++a[$2]; t = length($2); if (t > l) l = t; } END { for (i in a) printf("%s%" (l - length(i) + 1) "s%5.2f%%\n", i, " ", (a[i] * 100 / NR)); }' | sort -n -k2 -r | more
-}
-
-function top-commands-all {
-  history | sed -e 's/ *[0-9][0-9]* *//' | sort | uniq -c | sort -rn | head -10
-}
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
