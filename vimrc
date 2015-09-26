@@ -9,15 +9,11 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'embear/vim-localvimrc'
 Plug 'kana/vim-textobj-indent'
 Plug 'kien/ctrlp.vim'
-Plug 'reedes/vim-textobj-quote'
 Plug 'rking/ag.vim'
-Plug 'skwp/greplace.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
 
 " git integration
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " tmux integration
@@ -25,22 +21,15 @@ Plug 'blakewilliams/vim-tbro'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Language Support
-Plug 'kana/vim-textobj-user'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'tpope/vim-endwise'
-Plug 'zaiste/tmux.vim'
 
-" Development Environment
+" Rails development
 Plug 'thoughtbot/vim-rspec'
-Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 
 " Aesthetics
 Plug 'Lokaltog/vim-distinguished'
-Plug 'itchyny/lightline.vim'
-Plug 'blueyed/vim-diminactive'
 
 call plug#end()
 nnoremap <leader>P :PlugInstall<cr>
