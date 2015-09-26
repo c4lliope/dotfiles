@@ -4,8 +4,9 @@
 source $(brew --prefix nvm)/nvm.sh
 eval "$(rbenv init - zsh --no-rehash)"
 
-export PATH="$HOME/.bin"                # Functions in dotfiles
+export PATH=""
 export PATH="$PATH:.git/safe/../../bin" # Binstubs in trusted git repos
+export PATH="$PATH:$HOME/.bin"          # Functions in dotfiles
 export PATH="$PATH:/usr/local/bin"      # Homebrew-installed executables
 
 # Rbenv
