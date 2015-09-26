@@ -1,4 +1,5 @@
-# User configuration
+# Fix SSH
+unset SSH_AUTH_SOCK
 
 # recommended by brew doctor
 source $(brew --prefix nvm)/nvm.sh
