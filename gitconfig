@@ -17,6 +17,7 @@
   wip = commit -m 'WIP'
   co = checkout
   ma = checkout master
+  feat = checkout master -b
   f = fetch
   j = pull
   J = pull -X theirs
