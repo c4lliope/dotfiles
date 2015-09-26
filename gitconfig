@@ -42,7 +42,8 @@
 
   issues = browse -- issues
   trust = !"mkdir .git/safe"
-
+[commit]
+  template = ~/.gitmessage
 [core]
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
