@@ -1,6 +1,21 @@
 #!/bin/sh
 
-brew install wget tree selecta
+brew install \
+  docker \
+  docker-machine\
+  fzf \
+  hub \
+  nvm \
+  reattach-to-user-namespace \
+  ruby-install \
+  the_silver_searcher \
+  thoughtbot/formulae/parity \
+  tmux \
+  tree \
+  tree selecta \
+  vim \
+  wget \
+  zsh
 
 echo "Install rbenv-bundler, so we can stop \"bundle exec\"-ing things"
 brew install rbenv-bundler
@@ -17,7 +32,10 @@ brew cask install \
   iterm2 \
   phoenix \
   spotify \
+  virtualbox \
   vlc
+
+docker-machine create --driver virtualbox default
 
 echo "Installing a tool to display battery usage in the terminal"
 brew tap Goles/battery
