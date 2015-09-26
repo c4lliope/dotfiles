@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 " Core Functionality
 Plug 'christoomey/vim-sort-motion'
+Plug 'embear/vim-localvimrc'
 Plug 'kana/vim-textobj-indent'
 Plug 'kien/ctrlp.vim'
 Plug 'reedes/vim-textobj-quote'
@@ -80,6 +81,8 @@ source ~/.vim/config/spacing.vim
 source ~/.vim/config/splits.vim
 source ~/.vim/config/tmux.vim
 source ~/.vim/config/whitespace.vim
+
+let g:localvimrc_persistent=1
 
 runtime macros/matchit.vim
 set showmatch
