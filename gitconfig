@@ -13,7 +13,7 @@
   ap = add -p
   rh = reset HEAD
   m = merge
-  c = commit
+  c = commit -v
   wip = commit -m 'WIP'
   co = checkout
   ma = checkout master
