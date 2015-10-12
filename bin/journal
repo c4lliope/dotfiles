@@ -1,0 +1,21 @@
+JOURNAL_DIR="~/.journal"
+
+DATE=$(date "+%Y-%m-%d")
+TIME=$(date "+%H:%M")
+ENTRY="$JOURNAL_DIR/$DATE.md"
+
+touch $ENTRY
+echo "---" >> $ENTRY
+echo "date: $DATE" >> $ENTRY
+echo "time: $TIME" >> $ENTRY
+echo "---" >> $ENTRY
+echo >> $ENTRY
+
+echo "$ENTRY"
+vi + "$ENTRY"
+
+cd $JOURNAL_DIR
+git status
+git ai
+git add -p
+git commit -m "entry: $DATE"
