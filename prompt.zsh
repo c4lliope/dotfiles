@@ -1,37 +1,146 @@
-# get the name of the branch we are on
-function git_prompt_info() {
-  if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
-    ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
-    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+##########
+# Colors #
+###########
+
+# autoload docs: http://zsh.sourceforge.net/Doc/Release/Shell-Builtin-Commands.html
+# colors provides `$fg_bold` etc: http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Other-Functions
+autoload -Uz colors && colors
+
+prompt_color() {
+  [[ -n "$1" ]] && print "%{$fg_bold[$2]%}$1%{$reset_color%}"
+}
+
+prompt_gray()   { print "$(prompt_color "$1" grey)" }
+prompt_yellow() { print "$(prompt_color "$1" yellow)" }
+prompt_green()  { print "$(prompt_color "$1" green)" }
+prompt_red()    { print "$(prompt_color "$1" red)" }
+prompt_cyan()   { print "$(prompt_color "$1" cyan)" }
+prompt_blue()   { print "$(prompt_color "$1" blue)" }
+prompt_magenta(){ print "$(prompt_color "$1" magenta)" }
+
+prompt_spaced() { [[ -n "$1" ]] && print " $@" }
+prompt() { [[ -n "$1" ]] && print "$@" }
+
+###########################################
+# Helper functions: path and Ruby version #
+###########################################
+
+# %2~ means "show the last two components of the path, and show the home
+# directory as ~".
+#
+# Examples:
+#
+# ~/foo/bar is shown as "foo/bar"
+# ~/foo is shown as ~/foo (not /Users/gabe/foo)
+prompt_shortened_path() { print "$(prompt_blue "%2~")" }
+
+prompt_ruby_version() {
+  local version=$(rbenv version-name)
+  prompt_magenta "$version"
+}
+
+#######################
+#  GIT (branch, vcs)  #
+#######################
+#
+# vcs_info docs: http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
+
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' formats $(prompt_yellow "%b")
+zstyle ':vcs_info:git*' actionformats $(prompt_red "%b|%a")
+
+prompt_git_status_symbol(){
+  local letter
+  # http://www.fileformat.info/info/unicode/char/2714/index.htm
+  local checkmark="\u2714"
+  # http://www.fileformat.info/info/unicode/char/2718/index.htm
+  local x_mark="\u2718"
+
+  case $(prompt_git_status) in
+    changed) letter=$(prompt_red $x_mark);;
+    staged) letter=$(prompt_yellow "S");;
+    untracked) letter=$(prompt_cyan "UT");;
+    unchanged) letter=$(prompt_green $checkmark);;
+  esac
+
+  prompt_spaced "$letter"
+}
+
+# Is this branch ahead/behind its remote tracking branch?
+prompt_git_relative_branch_status_symbol(){
+  local arrow;
+
+  # Sources:
+  # http://www.fileformat.info/info/unicode/char/21e3/index.htm
+  # http://www.fileformat.info/info/unicode/char/21e1/index.htm
+  local downwards_arrow="\u21e3"
+  local upwards_arrow="\u21e1"
+
+  case $(prompt_git_relative_branch_status) in
+    behind) arrow=$(prompt_cyan $downwards_arrow);;
+    ahead) arrow=$(prompt_cyan $upwards_arrow);;
+  esac
+
+  print -n "$arrow"
+}
+
+prompt_git_status() {
+  local git_status="$(cat "/tmp/git-status-$$")"
+  if print "$git_status" | grep -qF "Changes not staged" ; then
+    print "changed"
+  elif print "$git_status" | grep -qF "Changes to be committed"; then
+    print "staged"
+  elif print "$git_status" | grep -qF "Untracked files"; then
+    print "untracked"
+  elif print "$git_status" | grep -qF "working directory clean"; then
+    print "unchanged"
   fi
 }
 
-# Checks if working tree is dirty
-parse_git_dirty() {
-  local STATUS=''
-  local FLAGS
-  FLAGS=('--porcelain')
-  if [[ "$(command git config --get oh-my-zsh.hide-dirty)" != "1" ]]; then
-    if [[ $POST_1_7_2_GIT -gt 0 ]]; then
-      FLAGS+='--ignore-submodules=dirty'
-    fi
-    if [[ "$DISABLE_UNTRACKED_FILES_DIRTY" == "true" ]]; then
-      FLAGS+='--untracked-files=no'
-    fi
-    STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
-  fi
-  if [[ -n $STATUS ]]; then
-    echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
-  else
-    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+prompt_git_relative_branch_status(){
+  local git_status="$(cat "/tmp/git-status-$$")"
+  if print "$git_status" | grep -qF "Your branch is behind"; then
+    print "behind"
+  elif print "$git_status" | grep -qF "Your branch is ahead"; then
+    print "ahead"
   fi
 }
 
-export PROMPT='%{$fg_bold[green]%}%p %{$fg[cyan]%}%c%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+prompt_git_branch() {
+  # vcs_info_msg_0_ is set by the `zstyle vcs_info` directives
+  local colored_branch_name="$vcs_info_msg_0_"
+  prompt "$colored_branch_name"
+}
+
+# This shows everything about the current git branch:
+# * branch name
+# * check mark/x mark/letter etc depending on whether branch is dirty, clean,
+#   has staged changes, etc
+# * Up arrow if local branch is ahead of remote branch, or down arrow if local
+#   branch is behind remote branch
+prompt_full_git_status(){
+  if [[ -n "$vcs_info_msg_0_" ]]; then
+    prompt_spaced "($(prompt_git_branch))" $(prompt_git_status_symbol) $(prompt_git_relative_branch_status_symbol)
+  fi
+}
+
+# `precmd` is a magic function that's run right before the prompt is evaluated
+# on each line.
+# Here, it's used to capture the git status to show in the prompt.
+function precmd {
+  vcs_info
+  git status 2> /dev/null >! "/tmp/git-status-$$"
+}
+
+###########################
+# Actually set the PROMPT #
+###########################
+
+# prompt_subst allows `$(function)` inside the PROMPT
+# Escape the `$()` like `\$()` so it's not immediately evaluated when this file
+# is sourced but is evaluated every time we need the prompt.
 setopt prompt_subst
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" (%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+export PROMPT="\$(prompt_ruby_version) \$(prompt_shortened_path)\$(prompt_full_git_status)  "
