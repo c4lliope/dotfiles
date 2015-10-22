@@ -85,7 +85,6 @@ alias be='bundle exec'
 alias ra='rake'
 alias r='rails'
 alias db='be rake db:migrate db:rollback && be rake db:migrate db:test:prepare'
-alias fs='foreman start'
 alias prodc='production run rails console'
 alias stagc='staging run rails console'
 
