@@ -39,14 +39,14 @@ source ~/.history.zsh
 source ~/.prompt.zsh
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='nvim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Key bindings
 bindkey -e
 bindkey -s ^f '`tree -Fif | selecta`^j'
-bindkey -s ^p 'vim -c "CtrlP"^j'
+bindkey -s ^p '$EDITOR -c "CtrlP"^j'
 bindkey -s ^b '`git b -a | sed "s/remotes\\/origin\\///" | selecta`^j'
 
 # Edit the current line in vim
