@@ -1,8 +1,6 @@
 for FUNCTION in ~/.functions/*
   . $FUNCTION
 
-alias rinstall='ruby-build'
-
 # shortcuts -- every keystroke counts!
 alias l='ls'
 alias ll='ls -lF'
