@@ -43,8 +43,6 @@ PATH="$HOME/bin:$PATH"
 PATH=".git/safe/../../bin:$PATH"
 export PATH
 
-export HOMEBREW_GITHUB_API_TOKEN=108e4060d8e0bee51d3b0fd66813af87f94c1f24
-
 # Import other user-defined functions
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
