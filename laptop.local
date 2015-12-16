@@ -15,7 +15,8 @@ brew install \
   tree selecta \
   vim \
   wget \
-  zsh
+  zsh \
+  zsh-syntax-highlighting \
 
 echo "Install rbenv-bundler, so we can stop \"bundle exec\"-ing things"
 brew install rbenv-bundler
