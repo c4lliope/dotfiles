@@ -44,6 +44,10 @@ brew install battery
 echo "Hooking up OS X's clipboard to tmux"
 brew install reattach-to-user-namespace
 
+echo "Installing neovim from the current github HEAD"
+brew tap neovim/neovim
+brew install --HEAD neovim
+
 if [ -d "/Applications/Adobe Creative Cloud" ]; then
   echo "It looks like Adobe Creative Cloud is already installed, skipping installer"
 else
@@ -56,6 +60,9 @@ git clone git@github.com:graysonwright/dotfiles ~/.dotfiles
 rcup -v
 echo "TODO: You may want to remove ~/.laptop.local, and then run 'rcup' again \
   to keep updated with the dotfiles"
+
+echo "Installing Neobundle"
+sh ~/.laptop/install_neobundle.sh
 
 echo "TODO: Opening background apps. You may want to configure these to start at login."
 open -a Caffeine

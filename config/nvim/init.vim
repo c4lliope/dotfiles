@@ -7,7 +7,7 @@ if has('vim_starting')
   endif
 
   " Required:
-  set runtimepath+=/Users/grayson/.vim/bundle/neobundle.vim/
+  set runtimepath+=/Users/grayson/.config/nvim/bundle/neobundle.vim/
 endif
 
 " Required:
@@ -118,7 +118,7 @@ set showmatch
 " Fast editing of .vimrc file
 nnoremap <leader>ve :e $MYVIMRC<CR>
 nnoremap <leader>vv :vsp $MYVIMRC<CR>
-autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost $MYVIMRC source %
 
 " Open help in a vertical split
 nnoremap <leader>h :vert help<space>
