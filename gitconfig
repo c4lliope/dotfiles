@@ -23,6 +23,7 @@
   J = pull -X theirs
   pr = !"git rebase -i origin/master && git push -f && hub pull-request"
   hound = !"git commit -m 'Fix PR suggestions' && git push"
+  changelog = !"git commit -m 'Update CHANGELOG.md' && git push"
   k = push
   kf = push --force-with-lease
   rb = rebase
