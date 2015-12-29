@@ -3,15 +3,13 @@ let mapleader=" "
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
   if &compatible
-    set nocompatible               " Be iMproved
+    set nocompatible
   endif
 
-  " Required:
   set runtimepath+=/Users/grayson/.config/nvim/bundle/neobundle.vim/
 endif
 
-" Required:
-call neobundle#begin(expand('/Users/grayson/.vim/bundle'))
+call neobundle#begin(expand('/Users/grayson/.config/nvim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -97,18 +95,18 @@ highlight LineNr ctermbg=none
 highlight CursorLineNr ctermbg=none ctermfg=yellow
 
 " Additional configurations and mappings
-source ~/.vim/config/abbreviations.vim
-source ~/.vim/config/buffers.vim
-source ~/.vim/config/ctrlp.vim
-source ~/.vim/config/git.vim
-source ~/.vim/config/quickfix.vim
-source ~/.vim/config/refactorings.vim
-source ~/.vim/config/rspec.vim
-source ~/.vim/config/search.vim
-source ~/.vim/config/spacing.vim
-source ~/.vim/config/splits.vim
-source ~/.vim/config/tmux.vim
-source ~/.vim/config/whitespace.vim
+source ~/.config/nvim/config/abbreviations.vim
+source ~/.config/nvim/config/buffers.vim
+source ~/.config/nvim/config/ctrlp.vim
+source ~/.config/nvim/config/git.vim
+source ~/.config/nvim/config/quickfix.vim
+source ~/.config/nvim/config/refactorings.vim
+source ~/.config/nvim/config/rspec.vim
+source ~/.config/nvim/config/search.vim
+source ~/.config/nvim/config/spacing.vim
+source ~/.config/nvim/config/splits.vim
+source ~/.config/nvim/config/tmux.vim
+source ~/.config/nvim/config/whitespace.vim
 
 let g:localvimrc_persistent=1
 

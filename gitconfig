@@ -47,7 +47,7 @@
 [commit]
   template = ~/.gitmessage
 [core]
-  editor = /usr/bin/vim
+  editor = /usr/local/bin/nvim
   excludesfile = ~/.gitignore
 [push]
   default = current
