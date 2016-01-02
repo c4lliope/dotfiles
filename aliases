@@ -50,6 +50,9 @@ alias Rt='RAILS_ENV=test'
 alias Rd='RAILS_ENV=development'
 alias Rp='RAILS_ENV=production'
 
+# Email shortcuts
+alias mail='lpass ls "Email/google.com" || lpass login wright.grayson@gmail.com && cd ~/Desktop && mutt'
+
 # Mistakes
 alias lgs='gls'
 
