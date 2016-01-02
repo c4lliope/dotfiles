@@ -1,6 +1,7 @@
 # Dependencies
 brew install \
   lastpass-cli \
+  msmtp \
   sqlite \
   urlview \
 

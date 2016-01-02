@@ -130,3 +130,9 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 set editor = "nvim"                  # Use NeoVim to compose email.
+
+# Sending Options
+set from     = "wright.grayson@gmail.com"
+set sendmail = "/usr/local/bin/msmtp -a wright.grayson"
+set sendmail_wait = 0
+unset record
