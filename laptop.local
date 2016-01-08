@@ -68,6 +68,9 @@ echo "TODO: You may want to remove ~/.laptop.local, and then run 'rcup' again \
 echo "Installing Neobundle"
 sh ~/.laptop/install_neobundle.sh
 
+echo "Installing NeoBundle packages"
+nvim +":NeoBundleInstall | q"
+
 echo "TODO: Opening background apps. You may want to configure these to start at login."
 open -a Caffeine
 open -a Phoenix
