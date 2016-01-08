@@ -8,6 +8,7 @@ brew install \
   nvm \
   reattach-to-user-namespace \
   ruby-install \
+  shpotify \
   the_silver_searcher \
   thoughtbot/formulae/parity \
   tmux \
