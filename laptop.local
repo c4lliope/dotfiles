@@ -33,6 +33,8 @@ brew cask install \
   google-chrome \
   iterm2 \
   phoenix \
+  skitch \
+  slack \
   spotify \
   virtualbox \
   vlc
