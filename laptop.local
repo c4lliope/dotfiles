@@ -60,7 +60,7 @@ else
 fi
 
 echo "Installing dotfiles from github using RCM"
-git clone git@github.com:graysonwright/dotfiles ~/.dotfiles
+git clone https://github.com/graysonwright/dotfiles.git ~/.dotfiles
 rcup -v
 echo "TODO: You may want to remove ~/.laptop.local, and then run 'rcup' again \
   to keep updated with the dotfiles"
