@@ -10,18 +10,18 @@ bindPhoenixMode('s', moveToNextScreen);
 
 bindPhoenixMode('escape', disableKeyBindings);
 bindPhoenixMode('return', disableKeyBindings);
+bindPhoenixMode('q', disableKeyBindings);
 
 // Initially disable all key bindings
 disableKeyBindings();
 
 function bindPhoenixMode(key, callback) {
-  var noModifierKeys = [];
-  keyBindings.push(api.bind(key, noModifierKeys, callback));
+  keyBindings.push(Phoenix.bind(key, [], callback));
 }
 
 // Modal activator
 // This hotkey enables/disables all other key bindings
-api.bind('space', ['alt'], function() {
+var masterKey = Phoenix.bind('space', ['alt'], function() {
   if(active) disableKeyBindings();
   else enableKeyBindings();
 });
@@ -30,14 +30,14 @@ function disableKeyBindings() {
   active = false;
   _(keyBindings).each(function(binding) { binding.disable(); });
 
-  api.alert("Done");
+  alert("Done");
 }
 
 function enableKeyBindings() {
   active = true;
   _(keyBindings).each(function(key) { key.enable(); });
 
-  api.alert("Phoenix is listening");
+  alert("Phoenix is listening");
 }
 
 function toGrid(x, y, width, height) {
@@ -45,7 +45,7 @@ function toGrid(x, y, width, height) {
 }
 
 function windowToGrid(window, x, y, width, height) {
-  var screen = window.screen().frameWithoutDockOrMenu();
+  var screen = window.screen().visibleFrameInRectangle();
 
   window.setFrame({
     x: Math.round( x * screen.width ) + screen.x,
@@ -55,14 +55,13 @@ function windowToGrid(window, x, y, width, height) {
   });
 
   window.focusWindow();
-  disableKeyBindings();
 
   return window;
 }
 
 function moveToNextScreen() {
   var window = Window.focusedWindow();
-  moveToScreen(window, window.screen().nextScreen());
+  moveToScreen(window, window.screen().next());
   toGrid(0, 0, 1, 1);
 };
 
@@ -71,8 +70,8 @@ function moveToScreen(window, screen) {
   if (!screen) return;
 
   var frame = window.frame();
-  var oldScreenRect = window.screen().frameWithoutDockOrMenu();
-  var newScreenRect = screen.frameWithoutDockOrMenu();
+  var oldScreenRect = window.screen().visibleFrameInRectangle();
+  var newScreenRect = screen.visibleFrameInRectangle();
   var xRatio = newScreenRect.width / oldScreenRect.width;
   var yRatio = newScreenRect.height / oldScreenRect.height;
 
@@ -86,3 +85,12 @@ function moveToScreen(window, screen) {
     height: frame.height
   });
 };
+
+function alert(text) {
+  var modal = new Modal();
+  modal.message = text;
+  modal.duration = 1;
+  modal.show();
+}
+
+alert("Phoenix loaded");
