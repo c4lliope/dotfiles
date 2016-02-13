@@ -21,7 +21,7 @@ alias hi="history | more"
 alias jformat="python -mjson.tool"
 alias vi="nvim"
 
-alias serve="python -m SimpleHTTPServer"
+alias servedir="python -m SimpleHTTPServer"
 
 ## Git Shortcuts
 alias g='hub'
