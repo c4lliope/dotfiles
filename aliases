@@ -20,6 +20,7 @@ alias b='bundle'
 alias hi="history | more"
 alias jformat="python -mjson.tool"
 alias vi="nvim"
+alias open='reattach-to-user-namespace open'
 
 alias servedir="python -m SimpleHTTPServer"
 
