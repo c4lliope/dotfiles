@@ -68,6 +68,7 @@ alias .t='tmux source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloade
 
 # Editing config files
 alias ..a='vi ~/.aliases; .a'
+alias ..l='vi ~/.laptop.local'
 alias ..z='vi ~/.zshrc; .z'
 alias ..g='vi ~/.gitconfig'
 alias ..v='vi ~/.config/nvim/init.vim'
