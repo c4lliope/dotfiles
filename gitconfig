@@ -49,6 +49,7 @@
 [core]
   editor = /usr/local/bin/nvim
   excludesfile = ~/.gitignore
+  commentchar = |
 [push]
   default = current
 [github]
