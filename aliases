@@ -32,6 +32,7 @@ alias gl='gls && echo && glg'
 alias ga='g a'
 alias gap='g a -p'
 alias gpa='gap' # For typos
+alias grb='g rb -i origin/master'
 alias gittyup='git push'
 alias gw='g c -a -m "wip"'
 alias gca='g commit --amend'
