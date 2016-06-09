@@ -89,6 +89,10 @@ alias dbreset='be rake db:drop db:create db:migrate && Rt be rake db:drop db:cre
 alias prodc='production run rails console'
 alias stagc='staging run rails console'
 
+# Docker
+alias dc='docker-compose'
+alias dcrun='docker-compose run --rm'
+
 # Keep track of device locations
 alias devices='dnsimple record:list graysonwright.com'
 
