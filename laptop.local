@@ -2,18 +2,20 @@
 
 brew install \
   docker \
+  docker-compose \
   docker-machine\
   fzf \
+  homebrew/binary/ngrok2 \
   hub \
   nvm \
   reattach-to-user-namespace \
   ruby-install \
+  selecta \
   shpotify \
   the_silver_searcher \
   thoughtbot/formulae/parity \
   tmux \
   tree \
-  tree selecta \
   vim \
   wget \
   zsh \
@@ -32,9 +34,14 @@ brew cask install \
   apptrap \
   caffeine \
   google-chrome \
+  google-photos-backup \
   imageoptim \
   iterm2 \
+  licecap \
+  marked \
+  nylas-n1 \
   phoenix \
+  pixelstick \
   skitch \
   slack \
   spotify \
