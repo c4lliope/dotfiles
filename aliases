@@ -84,7 +84,8 @@ alias tca="top-commands-all"
 alias be='bundle exec'
 alias ra='rake'
 alias r='rails'
-alias db='be rake db:migrate db:rollback && be rake db:migrate db:test:prepare'
+alias db='be rake db:migrate db:rollback && g d db/schema.rb && be rake db:migrate && g d db/schema.rb && RAILS_ENV=test rake db:migrate'
+alias dbreset='be rake db:drop db:create db:migrate && Rt be rake db:drop db:create db:migrate'
 alias prodc='production run rails console'
 alias stagc='staging run rails console'
 
