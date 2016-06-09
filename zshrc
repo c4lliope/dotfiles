@@ -48,7 +48,7 @@ export DISABLE_SPRING=1
 
 # Key bindings
 bindkey -e
-bindkey -s ^f '`tree -Fif | selecta`^j'
+bindkey -s ^f '`(git ls-files -o -X .gitignore; git ls-files) | selecta`^j'
 bindkey -s ^p '$EDITOR -c "CtrlP"^j'
 bindkey -s ^b '`git b -a | sed "s/remotes\\/origin\\///" | selecta`^j'
 
