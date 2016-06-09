@@ -1,2 +1,4 @@
-function dot()
+function dot() {
   cd ~/.dotfiles
+  t dot
+}
