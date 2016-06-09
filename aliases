@@ -102,6 +102,8 @@ alias bell="echo -n $'\a'"
 alias remake="make clean; cls; make"
 alias mvi="mvim"
 
+alias optim="open -a ImageOptim"
+
 alias of="openfile"
 
 # Make things colorful!

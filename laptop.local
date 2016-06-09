@@ -32,6 +32,7 @@ brew cask install \
   apptrap \
   caffeine \
   google-chrome \
+  imageoptim \
   iterm2 \
   phoenix \
   skitch \
