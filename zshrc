@@ -41,6 +41,9 @@ source ~/.prompt.zsh
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
 
+# Don't use Spring for pre-loading the Rails environment
+export DISABLE_SPRING=1
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Key bindings
