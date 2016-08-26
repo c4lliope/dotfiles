@@ -1,15 +1,15 @@
 "use strict";
 
 function centered_modal(message) {
-    var result = new Modal();
-    result.message = message;
+    var modal = new Modal();
+    modal.message = message;
     var screen_frame = Screen.main().frameInRectangle();
-    var result_frame = result.frame();
-    result.origin = {
+    var result_frame = modal.frame();
+    modal.origin = {
         x: 0.5 * (screen_frame.width - result_frame.width),
         y: 0.5 * (screen_frame.height - result_frame.height),
     };
-    return result;
+    return modal;
 }
 
 var h_reload = new Key('r', ['alt'], function () {
@@ -87,18 +87,24 @@ PrefixKey.prototype.addSuffix = function (key, modifiers, cb) {
 
 /* Window handling prefix key */
 
-var wPrefix = new PrefixKey('space', ['ctrl', 'alt', 'cmd'],
-    "h/l - Left/Right Half\nc - Center\ng - Wide Center\nm - Max\no/p - big left/right\nO/P - medium left/right\ns - next screen\nesc - Abort");
+var wPrefix = new PrefixKey('space', ['alt'],
+    "h/l - Left/Right Half\nj/k – Top/Bottom Half\nc - Center\ng - Wide Center\nf - Max\no/p - big left/right\nO/P - medium left/right\ns - next screen\nesc - Abort");
 wPrefix.addSuffix('h', [], function () {
     move_window({x: 0, y: 0, width: 0.5, height: 1.0});
 });
 wPrefix.addSuffix('l', [], function () {
     move_window({x: 0.5, y: 0, width: 0.5, height: 1.0});
 });
+wPrefix.addSuffix('j', [], function () {
+    move_window({x: 0, y: 0.5, width: 1.0, height: 0.5});
+});
+wPrefix.addSuffix('k', [], function () {
+    move_window({x: 0, y: 0, width: 1.0, height: 0.5});
+});
 wPrefix.addSuffix('g', [], function () {
     move_window({x: 0.15, y: 0, width: 0.7, height: 1.0});
 });
-wPrefix.addSuffix('m', [], function () {
+wPrefix.addSuffix('f', [], function () {
     move_window({x: 0, y: 0, width: 1.0, height: 1.0});
 });
 wPrefix.addSuffix('c', [], function () {
@@ -119,5 +125,7 @@ wPrefix.addSuffix('p', ['shift'], function () {
 wPrefix.addSuffix('s', [], function () {
     move_window_to_next_screen();
 });
+
+// Exit from the phoenix prefix mode
 wPrefix.addSuffix('escape', [], function () {});
-wPrefix.addSuffix('space', ['ctrl', 'alt', 'cmd'], function () {});
+wPrefix.addSuffix('space', ['alt'], function () {});
