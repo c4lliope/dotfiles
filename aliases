@@ -64,18 +64,19 @@ alias sleep!='pmset sleepnow'
 
 # Reloading config files
 alias .a='. ~/.aliases'
-alias .z='. ~/.zshrc'
 alias .t='tmux source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"'
+alias .z='. ~/.zshrc'
 
 # Editing config files
 alias ..a='vi ~/.aliases; .a'
-alias ..l='vi ~/.laptop.local'
-alias ..z='vi ~/.zshrc; .z'
 alias ..g='vi ~/.gitconfig'
-alias ..v='vi ~/.config/nvim/init.vim'
-alias ..t='vi ~/tools.md'
+alias ..h='vi ~/.hyperterm.js'
+alias ..l='vi ~/.laptop.local'
 alias ..p='vi ~/.phoenix.js'
 alias ..t='vi ~/.tmux.conf; .t'
+alias ..t='vi ~/tools.md'
+alias ..v='vi ~/.config/nvim/init.vim'
+alias ..z='vi ~/.zshrc; .z'
 
 alias tc="top-commands"
 alias tca="top-commands-all"
