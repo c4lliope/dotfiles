@@ -1,96 +1,123 @@
-var keyBindings = [];
-var active = false;
+"use strict";
 
-bindPhoenixMode('f', function() { toGrid(0.0, 0.0, 1.0, 1.0); });
-bindPhoenixMode('h', function() { toGrid(0.0, 0.0, 0.5, 1.0); });
-bindPhoenixMode('l', function() { toGrid(0.5, 0.0, 0.5, 1.0); });
-bindPhoenixMode('j', function() { toGrid(0.0, 0.5, 1.0, 0.5); });
-bindPhoenixMode('k', function() { toGrid(0.0, 0.0, 1.0, 0.5); });
-bindPhoenixMode('s', moveToNextScreen);
-
-bindPhoenixMode('escape', disableKeyBindings);
-bindPhoenixMode('return', disableKeyBindings);
-bindPhoenixMode('q', disableKeyBindings);
-
-// Initially disable all key bindings
-disableKeyBindings();
-
-function bindPhoenixMode(key, callback) {
-  keyBindings.push(Phoenix.bind(key, [], callback));
+function centered_modal(message) {
+    var result = new Modal();
+    result.message = message;
+    var screen_frame = Screen.main().frameInRectangle();
+    var result_frame = result.frame();
+    result.origin = {
+        x: 0.5 * (screen_frame.width - result_frame.width),
+        y: 0.5 * (screen_frame.height - result_frame.height),
+    };
+    return result;
 }
 
-// Modal activator
-// This hotkey enables/disables all other key bindings
-var masterKey = Phoenix.bind('space', ['alt'], function() {
-  if(active) disableKeyBindings();
-  else enableKeyBindings();
+var h_reload = new Key('r', ['alt'], function () {
+    Phoenix.reload();
 });
 
-function disableKeyBindings() {
-  active = false;
-  _(keyBindings).each(function(binding) { binding.disable(); });
+/* Window Handling */
 
-  alert("Done");
+function move_window(rect, screen) {
+    screen = screen || Screen.main();
+    var scr = screen.visibleFrameInRectangle();
+    var r = {
+        x: Math.round(scr.x + rect.x*scr.width),
+        y: Math.round(scr.y + rect.y*scr.height),
+        width: Math.round(scr.width * rect.width),
+        height: Math.round(scr.height * rect.height),
+    };
+    Window.focused().setFrame(r);
 }
 
-function enableKeyBindings() {
-  active = true;
-  _(keyBindings).each(function(key) { key.enable(); });
-
-  alert("Phoenix is listening");
+function move_window_to_next_screen() {
+    var currW = Window.focused();
+    var cwFrame = currW.frame();
+    var currScreen = currW.screen();
+    var nextScreen = currScreen.next();
+    var currScreenSize = currScreen.visibleFrameInRectangle();
+    var relative = {
+        x: (cwFrame.x - currScreenSize.x) / currScreenSize.width,
+        y: (cwFrame.y - currScreenSize.y) / currScreenSize.height,
+        width: cwFrame.width / currScreenSize.width,
+        height: cwFrame.height / currScreenSize.height,
+    };
+    move_window(relative, nextScreen);
 }
 
-function toGrid(x, y, width, height) {
-  windowToGrid(Window.focusedWindow(), x, y, width, height);
+/* Spaces */
+
+
+
+/* Support a prefix key with multiple suffix keys */
+
+function PrefixKey(key, modifiers, description) {
+    this.modal = centered_modal(description);
+    this.suffixes = [];
+    this.handlers = [];
+    var that = this;
+    this.prefix = new Key(key, modifiers, function () {
+        that.enableSuffixes();
+        that.modal.show();
+    });
 }
 
-function windowToGrid(window, x, y, width, height) {
-  var screen = window.screen().visibleFrameInRectangle();
-
-  window.setFrame({
-    x: Math.round( x * screen.width ) + screen.x,
-    y: Math.round( y * screen.height ) +screen.y,
-    width: Math.round( width * screen.width ),
-    height: Math.round( height * screen.height ),
-  });
-
-  window.focusWindow();
-
-  return window;
-}
-
-function moveToNextScreen() {
-  var window = Window.focusedWindow();
-  moveToScreen(window, window.screen().next());
-  toGrid(0, 0, 1, 1);
+PrefixKey.prototype.enableSuffixes = function () {
+    var that = this;
+    this.suffixes.forEach(function (x) {
+        var h = new Key(x.key, x.modifiers, function () {
+            that.disableSuffixes();
+            x.cb();
+            that.modal.close();
+            Phoenix.reload();
+        });
+        h.enable();
+        that.handlers.push(h);
+    });
+};
+PrefixKey.prototype.disableSuffixes = function () {
+    this.handlers.forEach( function (x) {
+        x.disable();
+    });
+    this.handlers = [];
+};
+PrefixKey.prototype.addSuffix = function (key, modifiers, cb) {
+    this.suffixes.push({key: key, modifiers: modifiers, cb: cb});
 };
 
-function moveToScreen(window, screen) {
-  if (!window) return;
-  if (!screen) return;
+/* Window handling prefix key */
 
-  var frame = window.frame();
-  var oldScreenRect = window.screen().visibleFrameInRectangle();
-  var newScreenRect = screen.visibleFrameInRectangle();
-  var xRatio = newScreenRect.width / oldScreenRect.width;
-  var yRatio = newScreenRect.height / oldScreenRect.height;
-
-  var mid_pos_x = frame.x + Math.round(0.5 * frame.width);
-  var mid_pos_y = frame.y + Math.round(0.5 * frame.height);
-
-  window.setFrame({
-    x: (mid_pos_x - oldScreenRect.x) * xRatio + newScreenRect.x - 0.5 * frame.width,
-    y: (mid_pos_y - oldScreenRect.y) * yRatio + newScreenRect.y - 0.5 * frame.height,
-    width: frame.width,
-    height: frame.height
-  });
-};
-
-function alert(text) {
-  var modal = new Modal();
-  modal.message = text;
-  modal.duration = 1;
-  modal.show();
-}
-
-alert("Phoenix loaded");
+var wPrefix = new PrefixKey('space', ['ctrl', 'alt', 'cmd'],
+    "h/l - Left/Right Half\nc - Center\ng - Wide Center\nm - Max\no/p - big left/right\nO/P - medium left/right\ns - next screen\nesc - Abort");
+wPrefix.addSuffix('h', [], function () {
+    move_window({x: 0, y: 0, width: 0.5, height: 1.0});
+});
+wPrefix.addSuffix('l', [], function () {
+    move_window({x: 0.5, y: 0, width: 0.5, height: 1.0});
+});
+wPrefix.addSuffix('g', [], function () {
+    move_window({x: 0.15, y: 0, width: 0.7, height: 1.0});
+});
+wPrefix.addSuffix('m', [], function () {
+    move_window({x: 0, y: 0, width: 1.0, height: 1.0});
+});
+wPrefix.addSuffix('c', [], function () {
+    move_window({x: 0.2, y: 0.2, width: 0.6, height: 0.6});
+});
+wPrefix.addSuffix('o', [], function () {
+    move_window({x: 0, y: 0, width: 0.9, height: 1.0});
+});
+wPrefix.addSuffix('o', ['shift'], function () {
+    move_window({x: 0, y: 0, width: 0.8, height: 1.0});
+});
+wPrefix.addSuffix('p', [], function () {
+    move_window({x: 0.1, y: 0, width: 0.9, height: 1.0});
+});
+wPrefix.addSuffix('p', ['shift'], function () {
+    move_window({x: 0.2, y: 0, width: 0.8, height: 1.0});
+});
+wPrefix.addSuffix('s', [], function () {
+    move_window_to_next_screen();
+});
+wPrefix.addSuffix('escape', [], function () {});
+wPrefix.addSuffix('space', ['ctrl', 'alt', 'cmd'], function () {});
