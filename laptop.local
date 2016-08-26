@@ -16,7 +16,6 @@ brew install \
   thoughtbot/formulae/parity \
   tmux \
   tree \
-  vim \
   wget \
   zsh \
   zsh-syntax-highlighting \
@@ -35,6 +34,7 @@ brew cask install \
   caffeine \
   google-chrome \
   google-photos-backup \
+  hyperterm \
   imageoptim \
   iterm2 \
   licecap \
