@@ -13,7 +13,7 @@ module.exports = {
     cursorShape: 'UNDERLINE',
 
     // color of the text
-    foregroundColor: '#fff',
+    foregroundColor: "#e8e8e8",
 
     // terminal background color
     backgroundColor: '#151515',
@@ -34,22 +34,22 @@ module.exports = {
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      black: '#000000',
-      red: '#ff0000',
-      green: '#33ff00',
-      yellow: '#ffff00',
-      blue: '#0066ff',
-      magenta: '#cc00ff',
-      cyan: '#00ffff',
-      white: '#d0d0d0',
-      lightBlack: '#808080',
-      lightRed: '#ff0000',
-      lightGreen: '#33ff00',
-      lightYellow: '#ffff00',
-      lightBlue: '#0066ff',
-      lightMagenta: '#cc00ff',
-      lightCyan: '#00ffff',
-      lightWhite: '#ffffff'
+      black: "#181818",
+      red: "#ab4642",
+      green: "#a1b56c",
+      yellow: "#f7ca88",
+      blue: "#7cafc2",
+      magenta: "#ba8baf",
+      cyan: "#86c1b9",
+      white: "#e8e8e8",
+      lightBlack: "#383838",
+      lightRed: "#ab4642",
+      lightGreen: "#a1b56c",
+      lightYellow: "#f7ca88",
+      lightBlue: "#7cafc2",
+      lightMagenta: "#ba8baf",
+      lightCyan: "#86c1b9",
+      lightWhite: "#f8f8f8",
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
