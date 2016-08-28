@@ -74,7 +74,6 @@ alias ..h='vi ~/.hyperterm.js'
 alias ..l='vi ~/.laptop.local'
 alias ..p='vi ~/.phoenix.js'
 alias ..t='vi ~/.tmux.conf; .t'
-alias ..t='vi ~/tools.md'
 alias ..v='vi ~/.config/nvim/init.vim'
 alias ..z='vi ~/.zshrc; .z'
 
@@ -92,6 +91,7 @@ alias stagc='staging run rails console'
 
 # Docker
 alias dc='docker-compose'
+alias dm='docker-machine'
 alias dcrun='docker-compose run --rm'
 
 # Keep track of device locations
