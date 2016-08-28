@@ -82,3 +82,5 @@ ensure_tmux_is_running
 export HOMEBREW_GITHUB_API_TOKEN=108e4060d8e0bee51d3b0fd66813af87f94c1f24
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export DISABLE_SPRING=1
