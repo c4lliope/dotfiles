@@ -1,0 +1,42 @@
+#!/usr/bin/env zsh
+
+# Create a new subdomain off of "graysonwright.com"
+# for the current directory's app
+#
+# Dependencies:
+# `brew install heroku`
+# `npm install -g dnsimple-cli`
+
+app=$1
+domain="graysonwright.com"
+heroku_app="graysonwright-$app"
+heroku_url="$heroku_app.herokuapp.com"
+subdomain_url="$app.$domain"
+
+if heroku whoami
+then
+else
+  heroku login
+fi
+
+if dnsimple account show
+then
+else
+  dnsimple login
+fi
+
+# Create a new heroku app
+heroku apps:create $heroku_app
+heroku config:set $(cat .env | sed "/^#/d")
+
+# Set up DNSimple to point to the new app
+dnsimple domain record add $app CNAME $heroku_url $domain
+heroku domains:add $subdomain_url --app $heroku_app
+
+# Push the app to heroku
+git push heroku master
+
+# Run migrations if this is a Rails app
+if [ -f db/schema.rb ]; then heroku run rake db:migrate; fi
+
+open http://$subdomain_url
