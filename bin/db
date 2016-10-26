@@ -1,0 +1,8 @@
+# Exit if any subcommand fails
+set -e
+
+bundle exec rake db:migrate db:rollback
+git d db/schema.rb
+bundle exec rake db:migrate
+git d db/schema.rb
+RAILS_ENV=test rake db:migrate
