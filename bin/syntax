@@ -1,0 +1,1 @@
+echo $@ | docker run --rm -i brianlow/syntaxnet

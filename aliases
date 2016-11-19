@@ -14,7 +14,6 @@ alias retag='ctags -R --exclude=.gitignore --exclude=.git --exclude=log --exclud
 alias flogit='find . -name \*.rb | xargs flog'
 alias flayit='find . -name \*.rb | xargs flay'
 alias ff='flogit && flayit'
-alias ss='spring stop'
 alias s='rspec'
 alias b='bundle'
 alias hi="history | more"
@@ -70,7 +69,7 @@ alias .z='. ~/.zshrc'
 # Editing config files
 alias ..a='vi ~/.aliases; .a'
 alias ..g='vi ~/.gitconfig'
-alias ..h='vi ~/.hyperterm.js'
+alias ..h='vi ~/.hyper.js'
 alias ..l='vi ~/.laptop.local'
 alias ..p='vi ~/.phoenix.js'
 alias ..t='vi ~/.tmux.conf; .t'
@@ -119,3 +118,9 @@ function gbot()
 
 function trello()
   tbot t/$(basename $PWD)
+
+alias crisis='cd ~/seattle/crisis && t crisis'
+
+alias rn='react-native'
+
+alias clip='cat | pbcopy'

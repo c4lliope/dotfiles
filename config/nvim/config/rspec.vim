@@ -1,5 +1,6 @@
 " RSpec.vim mappings
-let g:rspec_command = "w \| :Tbro time rspec {spec}"
+let g:rspec_command = "w \| :Tbro time ./bin/test {spec}"
+" let g:rspec_command = "w \| :Tbro dcrun web rake db:seed"
 nnoremap <Leader>sf :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>ss :call RunNearestSpec()<CR>
 nnoremap <Leader>sl :call RunLastSpec()<CR>

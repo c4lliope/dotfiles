@@ -7,6 +7,7 @@ eval "$(rbenv init - zsh --no-rehash)"
 
 export PATH=""
 export PATH="$PATH:.git/safe/../../bin" # Binstubs in trusted git repos
+export PATH="$PATH:.git/safe/../../node_modules/.bin" # Binstubs in trusted git repos
 export PATH="$PATH:$HOME/.bin"          # Functions in dotfiles
 export PATH="$PATH:/usr/local/bin"      # Homebrew-installed executables
 
@@ -34,7 +35,7 @@ export PATH
 
 source ~/.aliases
 source ~/.colors.zsh
-source ~/.docker.zsh
+# source ~/.docker.zsh
 source ~/.history.zsh
 source ~/.prompt.zsh
 

@@ -5,4 +5,4 @@ bundle exec rake db:migrate db:rollback
 git d db/schema.rb
 bundle exec rake db:migrate
 git d db/schema.rb
-RAILS_ENV=test rake db:migrate
+RAILS_ENV=test rake db:drop db:create db:migrate

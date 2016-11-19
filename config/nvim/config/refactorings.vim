@@ -32,3 +32,13 @@ nnoremap <leader>ri :call InlineVariable()<cr>
 " the script leaves you in the middle of a substitution command
 " to rename the variable to whatever you want.
 vnoremap <leader>re cvariable<esc>O<esc>p==Ivariable = <esc>:.,+1s/variable/
+
+" Transform an argument list or hash from a single line into multiple lines,
+" breaking on commas.
+" See http://superuser.com/questions/652878/653027#653027
+nnoremap <leader>ra $v%lohc<CR><CR><Up><C-r>"<Esc>:s/,/,\r/<CR>A,<Esc>j=%
+
+" Reverse: transform an argument list or hash from multiple lines into a
+" single line.
+nnoremap <leader>rb Vi)A<bs><esc>Vi):s/,\n \+/, <cr>kJxJ
+nnoremap <leader>rc Vi}A<bs><esc>Vi}:s/,\n \+/, <cr>kJxJ

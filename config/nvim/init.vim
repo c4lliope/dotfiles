@@ -39,6 +39,7 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'mattn/emmet-vim'
 
 " Rails development
 NeoBundle 'thoughtbot/vim-rspec'
@@ -121,6 +122,8 @@ autocmd! bufwritepost $MYVIMRC source %
 " Open help in a vertical split
 nnoremap <leader>h :vert help<space>
 
+autocmd BufNewFile,BufReadPost *.es6 set filetype=javascript
+
 " Check spelling when writing plain text
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd Filetype text setlocal spell
@@ -173,7 +176,17 @@ nnoremap Q qqqqq
 " set autowrite
 autocmd BufEnter Gemfile nnoremap <buffer> gf :!open https://rubygems.org/gems/<c-r><c-w><cr>
 vnoremap <leader>ri :call I18nTranslateString()<cr>
+
+let g:neomake_scss_scsslint_maker = {
+    \ 'exe': 'scss-lint',
+    \ 'args': ['--verbose'],
+    \ 'errorformat': '%f:%l [%t] %m',
+    \ }
+let g:neomake_scss_enabled_makers = ['scsslint']
 autocmd! BufWritePost * Neomake
 if has('nvim')
   nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 endif
+
+
+nnoremap <leader>fs ggO# frozen_string_literal: true<esc>cc<esc>
