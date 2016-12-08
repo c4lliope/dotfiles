@@ -1,6 +1,0 @@
-function gitcfa() {
-  hub clone codeforamerica/$1 ~/dev/cfa/$1
-  cd ~/dev/cfa/$1
-  retag
-  ./bin/setup
-}

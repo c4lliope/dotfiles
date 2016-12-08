@@ -1,2 +1,0 @@
-function openfile()
-  open $1 && exit

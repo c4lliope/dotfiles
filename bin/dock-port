@@ -1,2 +1,0 @@
-# https://fogstack.wordpress.com/2014/02/09/docker-on-osx-port-forwarding/
-VBoxManage modifyvm "default" --natpf1 "guestnginx,tcp,,$1,,$1"
