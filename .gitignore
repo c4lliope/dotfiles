@@ -1,0 +1,4 @@
+config/fish/fishd.*
+config/nvim/.netrwhist
+config/dein
+config/hub

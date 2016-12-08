@@ -1,0 +1,46 @@
+[alias]
+  # Check working status of repository
+  s = status --short
+  d = diff -w --patience
+  dc = diff --cached --patience
+
+  # Manage staged files
+  a = add
+  ai = add --intent-to-add
+  rb = rebase
+  rh = reset HEAD
+  st = stash
+
+  # Navigate around the git tree
+  b = branch
+  c = commit -v
+  co = checkout
+  f = fetch
+  feat = checkout master -b
+  m = merge
+  r = remote
+
+  # Talk to remote git servers
+  j = pull
+  k = push
+  kf = push --force-with-lease
+
+  # Easily edit ignore files
+  i = !"$EDITOR .gitignore"
+  e = !"$EDITOR .git/info/exclude"
+
+  # Take a detailed look at the state of the git tree
+  lg = log --graph --all --format=format:'%C(red)%h%C(reset) %C(cyan)(%ar)%C(reset) %s %C(yellow)-%aN%C(reset)%C(blue)%d%C(reset)' --abbrev-commit --date=relative
+
+[color]
+  ui = true
+
+[core]
+  pager = more
+
+[push]
+  default = current
+
+[user]
+  email = wright.grayson@gmail.com
+  name = Grayson Wright
